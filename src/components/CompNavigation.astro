@@ -15,11 +15,10 @@ const currentPath = currentUrl.pathname;
     {SITE_NAVIGATION.map(item => (
       <li>
         <a 
-          href={`${import.meta.env.BASE_URL}${item.url}`}
+          href={`/${item.url}`}
           aria-current={currentPath === item.url ? 'page' : undefined}
         >{item.label}</a>
       </li>
     ))}
   </ul>
 </nav>
-
