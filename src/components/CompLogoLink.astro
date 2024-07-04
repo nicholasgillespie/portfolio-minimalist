@@ -1,10 +1,10 @@
 ---
 // Imports
 import CompIcons from "./CompIcons.astro";
-import { SITE_TITLE } from "../consts";
+import { CONFIG_BASE, SITE_TITLE } from "../consts";
 ---
 
-<a href="./">
+<a href={CONFIG_BASE}>
   <svg class="site-logo" fill="currentColor" viewBox="0 0 61 32">
     <use xlink:href="#site-logo"></use>
   </svg>
