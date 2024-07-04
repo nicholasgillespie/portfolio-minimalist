@@ -66,8 +66,8 @@
 
 ### TODO
 
-- Define the project design tokens.
 - Identify the sections, main elements/components, and the macro & micro layout.
+- Define the project design tokens.
 
 ---
 
