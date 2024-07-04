@@ -56,13 +56,17 @@
 
 - Converted project files to .md for dynamic content display and improved content management.
 
+### Base Value Configuration
+
+- Addressed `base` value configuration by integrating `CONFIG_SITE` and `CONFIG_BASE` constants, optimizing navigation for GitHub Pages deployment.
+
+### Deployment
+
+- Successfully deployed the site to GitHub Pages, enhancing project visibility and providing a platform for live testing and feedback.
+
 ### TODO
 
-- Deal with `base` value:
-  - https://docs.astro.build/en/guides/deploy/github/#deploying-to-a-githubio-url
-  - https://docs.astro.build/en/reference/configuration-reference/#base
 - Define the project design tokens.
-- Initialize the project on GitHub and deploy.
 - Identify the sections, main elements/components, and the macro & micro layout.
 
 ---
