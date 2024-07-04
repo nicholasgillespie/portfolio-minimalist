@@ -163,6 +163,11 @@ table {
 a {
   display: inline-block;
 
+  &:hover,
+  &:focus-visible {
+    text-decoration: none;
+  }
+
   &[aria-current="page"] {
     font-weight: bold;
   }

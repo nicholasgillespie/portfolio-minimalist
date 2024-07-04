@@ -58,7 +58,9 @@
 
 ### TODO
 
-- Mutate the files in `docs/content` to Markdown format to be usable within the content.
+- Deal with `base` value:
+  - https://docs.astro.build/en/guides/deploy/github/#deploying-to-a-githubio-url
+  - https://docs.astro.build/en/reference/configuration-reference/#base
 - Define the project design tokens.
 - Initialize the project on GitHub and deploy.
 - Identify the sections, main elements/components, and the macro & micro layout.
