@@ -2,7 +2,7 @@
 // Imports
 import ViewTransitions from "astro/components/ViewTransitions.astro";
 import "../styles/core.scss";
-import { SITE_TITLE } from "../consts";
+import { CONFIG_SITE, CONFIG_BASE, SITE_TITLE } from "../consts";
 
 // Static Data
 const { metaTitle, metaDescription } = Astro.props;
@@ -23,10 +23,7 @@ const { metaTitle, metaDescription } = Astro.props;
   <!-- <base href="/portfolio-minimalist" /> -->
 
   <!-- Canonical link -->
-  <link
-    rel="canonical"
-    href="https://nicholasgillespie.github.io/portfolio-minimalist/"
-  />
+  <link rel="canonical" href={`${CONFIG_SITE}${CONFIG_BASE}`} />
 
   <!-- Favicon and Theme Color -->
   <link rel="icon" type="image/svg+xml" href="images/favicon-32x32.png" />
