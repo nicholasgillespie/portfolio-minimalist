@@ -1,11 +1,11 @@
 import { defineConfig } from "astro/config";
 import purgecss from "astro-purgecss";
-import { CONFIG_BASE } from "./src/consts";
+import { SITE_BASE } from "./src/consts";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [purgecss()],
   site: "https://nicholasgillespie.github.io",
-  base: CONFIG_BASE,
+  base: SITE_BASE,
   trailingSlash: "never",
 });
