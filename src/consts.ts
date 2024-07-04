@@ -12,7 +12,7 @@ export const SITE_NAVIGATION = [
 ];
 
 export const SOCIAL_MEDIA = [
-  { label: "GitHub", url: "#" },
-  { label: "Twitter", url: "#" },
-  { label: "LinkedIn", url: "#" },
+  { label: "GitHub", url: "https://github.com/nicholasgillespie" },
+  { label: "Twitter", url: "https://x.com/nikogillespie" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/gillespie-nicholas/" },
 ];
