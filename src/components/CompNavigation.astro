@@ -1,0 +1,24 @@
+---
+// Imports
+import { SITE_NAVIGATION } from "../consts";
+
+// Component Props
+const { label } = Astro.props;
+
+// Dynamic Data & Logic
+const currentUrl = new URL(Astro.request.url, import.meta.env.SITE);
+const currentPath = currentUrl.pathname;
+---
+
+<nav aria-label={label}>
+  <ul role="list" class="l-cluster">
+    {SITE_NAVIGATION.map(item => (
+      <li>
+        <a 
+          href={item.url}
+          aria-current={currentPath === item.url ? 'page' : undefined}
+        >{item.label}</a>
+      </li>
+    ))}
+  </ul>
+</nav>

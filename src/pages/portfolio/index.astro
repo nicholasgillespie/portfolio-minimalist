@@ -1,0 +1,30 @@
+---
+// Imports
+import LayoutDefault from '../../layouts/LayoutDefault.astro';
+import { getCollection } from "astro:content";
+
+// Static Data
+const metaTitle = "Portfolio";
+const metaDescription = "xxx";
+
+// Dynamic Data & Logic
+const items = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<LayoutDefault {metaTitle} {metaDescription}>
+	<section class="l-wrapper">
+    <ul role="list" class="articles | l-grid">
+
+      {items.map((item) => (
+				<li class="l-flow">
+					<h2 class="u-font-size-2">{item.data.title}</h2>
+					<p>{item.data.description}</p>
+					<a href={`portfolio/${item.slug}`}>link</a>
+				</li>
+      ))}
+
+    </ul>
+	</section>
+</LayoutDefault>

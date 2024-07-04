@@ -1,0 +1,14 @@
+---
+// Imports
+import BaseHead from '../components/BaseHead.astro';
+
+// Component Props
+const { metaTitle, metaDescription } = Astro.props;
+---
+
+<html lang="en">
+	<BaseHead {metaTitle} {metaDescription} />
+	<body>
+    <slot />
+	</body>
+</html>

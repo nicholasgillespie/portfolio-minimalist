@@ -1,0 +1,45 @@
+---
+// Imports
+import ViewTransitions from "astro/components/ViewTransitions.astro";
+import "../styles/core.scss";
+import { SITE_TITLE } from "../consts";
+
+// Static Data
+const { metaTitle, metaDescription } = Astro.props;
+
+// Dynamic Data & Logic
+---
+
+<head>
+  <!-- Encoding & Viewport -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Title & Description -->
+  <title>{ metaTitle } | { SITE_TITLE }</title>
+  <meta name="description" content={`${metaDescription}`} />
+
+  <!-- Base URL -->
+
+  <!-- Canonical link -->
+  <link
+    rel="canonical"
+    href="https://nicholasgillespie.github.io/portfolio-minimalist/"
+  />
+
+  <!-- Favicon and Theme Color -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon-32x32.png" />
+  <meta name="theme-color" content="#151515" />
+
+  <!-- Google Fonts -->
+
+  <!-- Astro Generator Meta Tag -->
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- View Transitions -->
+  <ViewTransitions />
+</head>
+
+<style lang="scss">
+  @use "../styles/10-functions/theme-accessor" as *;
+</style>

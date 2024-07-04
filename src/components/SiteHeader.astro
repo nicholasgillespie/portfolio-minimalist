@@ -1,0 +1,15 @@
+---
+// Imports
+import CompSkipLink from "./CompSkipLink.astro";
+import CompNavigation from "./CompNavigation.astro";
+import CompLogoLink from "./CompLogoLink.astro";
+---
+
+<header class="site-header">
+  <CompSkipLink targetId="main" />
+
+  <div class="l-wrapper l-region l-repel">
+    <CompLogoLink variant="primary" />
+    <CompNavigation label="Main Navigation" />
+  </div>
+</header>

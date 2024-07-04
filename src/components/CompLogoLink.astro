@@ -1,0 +1,23 @@
+---
+// Imports
+import CompIcons from "./CompIcons.astro";
+import { SITE_TITLE } from "../consts";
+---
+
+<a href="./">
+  <svg class="site-logo" fill="currentColor" viewBox="0 0 61 32">
+    <use xlink:href="#site-logo"></use>
+  </svg>
+  <span class="u-vh">{SITE_TITLE}</span>  
+</a>
+<CompIcons />
+
+<style lang="scss">
+  a {
+    display: inline-flex;
+  }
+
+  .site-logo {
+    block-size: 1lh;
+  }
+</style>

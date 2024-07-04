@@ -1,0 +1,33 @@
+---
+// Component Props
+const { targetId } = Astro.props;
+---
+
+<a 
+  href={`#${targetId}`} 
+  id={`skip-link-#${targetId}`} 
+  class="skip-link button">{`Skip to ${targetId}`}
+</a>
+
+<style lang="scss">
+  @use "../styles/10-functions/theme-accessor" as *;
+
+  .skip-link {
+    // Position the skip link off-screen
+    position: absolute;
+    inset-block-start: -100vh;
+    inset-inline-start: -100vh;
+    
+    // Style the skip link
+    inline-size: max-content;
+    max-inline-size: var(--space-skip-link-max-inline, calc(100vw - 2 * var(--space-gutter)));
+    z-index: 999;
+
+    // When focused, bring the skip link back into view
+    &:focus-visible {
+      inset-block-start: var(--space-skip-link-block, var(--space-gutter));
+      inset-inline-start: var(--space-skip-link-inline, var(--space-gutter));
+      mix-blend-mode: difference;
+    }
+  }
+</style>

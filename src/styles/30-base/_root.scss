@@ -1,0 +1,58 @@
+@use "../20-mixins/theme-applier" as *;
+@use "../10-functions/theme-accessor" as *;
+
+// GLOBAL TOKENS --------------------
+:root {
+  @include themeCssVariables();
+
+  // Fundamental layout measures
+  --item-size-min: 15rem;
+  --measure: 70ch;
+
+  // Transition
+  // --transition-base: 250ms ease;
+  // --transition-movement: 200ms linear;
+  // --transition-fade: 300ms ease;
+  // --transition-bounce: 500ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
+
+  // P3 color generation if supported
+  @media (color-gamut: p3) {
+    @supports (color: color(display-p3 0 0 0 / 1)) {
+      @include tokenCssVariables("colors", "toP3");
+    }
+  }
+}
+
+// CONTEXTUAL-GENERIC TOKENS --------------------
+:root {
+  // Spacing
+  --space-gutter: #{get(space, s-l)};
+  --space-gutter-s: #{get(space, s-m)};
+  --space-gutter-m: #{get(space, m-l)};
+  --space-gutter-l: #{get(space, l-xl)};
+  --space-gutter-xl: #{get(space, xl-2xl)};
+  --space-region: #{get(space, 2xl)};
+  --space-region-s: #{get(space, m-2xl)};
+
+  // Typography
+  // --text-size-base: #{get(font-size, base)};
+  // --text-size-heading-1: #{get(font-size, 5)};
+  // --text-size-heading-2: #{get(font-size, 4)};
+  // --text-size-heading-3: #{get(font-size, 3)};
+  // --text-size-heading-4: #{get(font-size, 2)};
+
+  // Radius
+  // --radius: #{get(space, xs)};
+  --radius-s: #{get(space, 2xs)};
+  --radius-l: #{get(space, xl)};
+
+  // Decorations
+  --focus-color: #{get(color, gold)};
+  // --border-color: #{get(color, mint-green)};
+  --border-width: 2px;
+  --border: solid var(--border-width) var(--border-color);
+  --shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+// COMPONENT-SPECIFIC TOKENS --------------------
+// CONTEXTUAL-CONTENT TOKENS --------------------

@@ -1,0 +1,17 @@
+---
+// Imports
+import BaseLayout from "./BaseLayout.astro"
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+// Component Props
+const { metaTitle, metaDescription } = Astro.props;
+---
+
+<BaseLayout {metaTitle} {metaDescription}>
+  <SiteHeader />
+  <main id="main">
+    <slot />
+  </main>
+  <SiteFooter/>
+</BaseLayout>

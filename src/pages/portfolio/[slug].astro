@@ -1,0 +1,29 @@
+---
+// Imports
+import LayoutDefault from '../../layouts/LayoutDefault.astro';
+import { getCollection } from 'astro:content';
+
+// Dynamic Data & Logic 
+  export async function getStaticPaths() {
+    const items = await getCollection("projects");   
+    return items.map(item => ({
+      params: { slug: item.slug }, 
+      props: { item },
+    }));
+  }
+  
+  // Component Props
+  const { item } = Astro.props;
+  const { Content } = await item.render();
+---
+
+<LayoutDefault metaTitle={item.data.title} metaDescription={item.data.description}>
+  <div class="l-wrapper l-flow">
+    <h1>{item.data.title}</h1>
+    <p><strong>Description:</strong> {item.data.description}</p>
+    <p><strong>Category:</strong> {item.data.category}</p>
+    <p><strong>Technologies:</strong> {item.data.technologies}</p>
+    <a href={item.data.link} target="_blank" rel="noopener noreferrer">Visit Website</a>
+    <p><strong>Project Background:</strong> {item.data.background}</p>
+  </div>
+</LayoutDefault>

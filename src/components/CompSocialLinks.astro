@@ -1,0 +1,37 @@
+---
+// Imports
+import CompIcons from "./CompIcons.astro";
+import { SOCIAL_MEDIA } from "../consts";
+
+// Static Data
+const iconViewboxMap = {
+  GitHub: "0 0 25 24",
+  Twitter: "0 0 24 20",
+  LinkedIn: "0 0 24 24",
+};
+---
+
+<ul role="list" class="l-cluster">
+  {SOCIAL_MEDIA.map(item => (
+    <li>
+      <a href={item.url}>
+        <svg class="icon" fill="currentColor" viewBox={iconViewboxMap[item.label]}>
+          <use xlink:href={`#${item.label.toLowerCase()}`}></use>
+        </svg>
+        <span class="u-vh">{item.label}</span>
+      </a>
+    </li>
+  ))}
+</ul>
+<CompIcons />
+
+<style lang="scss">
+  li, 
+  a {
+    display: inline-flex;
+  }
+
+  .icon {
+    block-size: 1lh;
+  }
+</style>
