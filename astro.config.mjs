@@ -5,5 +5,6 @@ import purgecss from "astro-purgecss";
 export default defineConfig({
   integrations: [purgecss()],
   site: "https://github.com/nicholasgillespie",
-  base: "/portfolio-minimalist/",
+  base: "/portfolio-minimalist",
+  trailingSlash: "always",
 });
