@@ -2,7 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const CONFIG_SITE = "https://nicholasgillespie.github.io";
-// Use CONFIG_BASE = "" in development and CONFIG_BASE = "/<your-app-path>" in production
+// CONFIG_BASE: "" (dev) or "/<app-path>" (prod)
 // export const CONFIG_BASE = "";
 export const CONFIG_BASE = "/portfolio-minimalist";
 

@@ -29,9 +29,12 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-main {
-  // overflow: hidden;
+.site-header,
+.site-footer {
+  text-transform: uppercase;
 }
+
+// main {}
 
 // TYPOGRAPHY ////////////////////
 h1,
@@ -42,7 +45,7 @@ h4 {
   font-weight: get(font-weight, bold);
   line-height: get(line-height, flat);
   color: inherit;
-  text-transform: uppercase;
+  // text-transform: capitalize;
   text-wrap: balance;
   hyphens: auto;
 }
