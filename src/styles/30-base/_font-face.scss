@@ -1,3 +1,4 @@
+// BODY
 // @font-face {
 //   font-family: "Outfit";
 //   src: url("/fonts/Outfit/Outfit-Light.woff2") format("woff2"),
@@ -7,24 +8,25 @@
 //   font-style: normal;
 // }
 
-// @font-face {
-//   font-family: "Big Shoulders Display";
-//   src: url("/fonts/Big_Shoulders_Display/BigShouldersDisplay-SemiBold.woff2")
-//       format("woff2"),
-//     url("/fonts/Big_Shoulders_Display/BigShouldersDisplay-SemiBold.woff")
-//       format("woff");
-//   font-display: swap;
-//   font-weight: 600;
-//   font-style: normal;
-// }
+// HEADINGS
+@font-face {
+  font-family: "Ibarra Real Nova";
+  src: url("/portfolio-minimalist/fonts/Ibarra_Real_Nova/IbarraRealNova-Bold.woff2")
+      format("woff2"),
+    url("/portfolio-minimalist/fonts/Ibarra_Real_Nova/IbarraRealNova-Bold.woff")
+      format("woff");
+  font-display: swap;
+  font-weight: 700;
+  font-style: normal;
+}
 
-// @font-face {
-//   font-family: "Big Shoulders Display";
-//   src: url("/fonts/Big_Shoulders_Display/BigShouldersDisplay-Black.woff2")
-//       format("woff2"),
-//     url("/fonts/Big_Shoulders_Display/BigShouldersDisplay-Black.woff")
-//       format("woff");
-//   font-display: swap;
-//   font-weight: 900;
-//   font-style: normal;
-// }
+@font-face {
+  font-family: "Ibarra Real Nova";
+  src: url("/portfolio-minimalist/fonts/Ibarra_Real_Nova/IbarraRealNova-Regular.woff2")
+      format("woff2"),
+    url("/portfolio-minimalist/fonts/Ibarra_Real_Nova/IbarraRealNova-Regular.woff")
+      format("woff");
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}

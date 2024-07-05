@@ -16,22 +16,22 @@
   border-radius: var(--button-radius, 0em);
   font-size: inherit;
   font-family: get(font-family, display);
-  font-weight: get(font-weight, semi-bold);
+  // font-weight: get(font-weight, semi-bold);
   line-height: var(--line-height-flat);
   letter-spacing: get(letter-spacing, extra-loose);
   text-transform: uppercase;
   background-color: var(--button-bg, transparent);
-  color: var(--button-text, get(color, white));
+  // color: var(--button-text, get(color, white));
 
   & span {
-    background-color: get(background-color, almost-black);
+    // background-color: get(background-color, almost-black);
     padding: var(--button-y-padding) var(--button-x-padding);
     padding-inline-end: calc(var(--button-x-padding) * 3.5);
   }
 
   & svg {
     position: absolute;
-    background-color: get(background-color, gold);
+    // background-color: get(background-color, gold);
     inset-inline-end: 0;
     block-size: 100%;
     padding: var(--button-y-padding) var(--button-x-padding);
@@ -40,11 +40,11 @@
   &:hover,
   &:focus-visible {
     & span {
-      background-color: get(background-color, gold);
+      // background-color: get(background-color, gold);
     }
 
     & svg {
-      background-color: get(background-color, almost-black);
+      // background-color: get(background-color, almost-black);
     }
   }
 

@@ -11,9 +11,9 @@
 
 // GLOBAL SETTINGS ////////////////////
 body {
-  accent-color: get(color, gold);
-  background: get(color, white);
-  color: get(color, almost-black);
+  accent-color: get(color, slightly-desaturated-cyan);
+  background: get(color, very-light-grey);
+  color: get(color, grayish-dark-blue);
   font-family: get(font-family, base);
   font-size: get(font-size, base);
   font-weight: get(font-weight, base);
@@ -39,9 +39,9 @@ h2,
 h3,
 h4 {
   font-family: get(font-family, display);
-  font-weight: get(font-weight, black);
+  font-weight: get(font-weight, bold);
   line-height: get(line-height, flat);
-  color: get(color, almost-black);
+  color: inherit;
   text-transform: uppercase;
   text-wrap: balance;
   hyphens: auto;
