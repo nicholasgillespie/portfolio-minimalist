@@ -2,6 +2,7 @@
 // Imports
 import { getCollection } from "astro:content";
 import LayoutDefault from '../../layouts/LayoutDefault.astro';
+import { CONFIG_BASE } from "../../consts";
 
 // Static Data
 const metaTitle = "Portfolio";
@@ -21,7 +22,7 @@ const items = (await getCollection("projects")).sort(
 				<li class="l-flow">
 					<h2 class="u-font-size-2">{item.data.title}</h2>
 					<p>{item.data.description}</p>
-					<a href={`/${metaTitle.toLowerCase()}/${item.slug}`}>link</a>
+					<a href={`${CONFIG_BASE}/${metaTitle.toLowerCase()}/${item.slug}`}>link</a>
 				</li>
       ))}
 
