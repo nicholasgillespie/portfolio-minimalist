@@ -21,7 +21,7 @@ const items = (await getCollection("projects")).sort(
 				<li class="l-flow">
 					<h2 class="u-font-size-2">{item.data.title}</h2>
 					<p>{item.data.description}</p>
-					<a href={`/portfolio/${item.slug}`}>link</a>
+					<a href={`/${metaTitle.toLowerCase()}/${item.slug}`}>link</a>
 				</li>
       ))}
 
