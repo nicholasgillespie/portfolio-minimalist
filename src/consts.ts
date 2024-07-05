@@ -2,7 +2,8 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const CONFIG_SITE = "https://nicholasgillespie.github.io";
-export const CONFIG_BASE = "";
+// export const CONFIG_BASE = "";
+export const CONFIG_BASE = "/portfolio-minimalist";
 
 export const SITE_TITLE = "Portfolio Minimalist";
 export const SITE_NAVIGATION = [
