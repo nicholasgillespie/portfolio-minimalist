@@ -69,6 +69,16 @@
 - Identify the sections, main elements/components, and the macro & micro layout.
 - Define the project design tokens.
 
+## 2024-07-05 - Morning
+
+### Link Configuration
+
+- Sorted out the links in the project to ensure proper navigation in both development and production environments.
+
+### Image Configuration
+
+- Configured portfolio page images for responsive display across devices, optimizing load times and visual experience. Images are sorted and displayed by their collection order.
+
 ---
 
 ## [Date] - [Session]
