@@ -79,6 +79,15 @@
 
 - Configured portfolio page images for responsive display across devices, optimizing load times and visual experience. Images are sorted and displayed by their collection order.
 
+## 2024-07-05 - Afternoon
+
+### Design Review
+
+- Reviewed the [Figma file](https://www.figma.com/design/3TJeqjHpvPOGOIloWgz9xM/minimalist-portfolio-website?node-id=52-22&t=AQh37MlHGMSCFgM5-0) to:
+
+  - Defined the project [design tokens](https://github.com/nicholasgillespie/portfolio-minimalist/tree/main/src/styles/00-settings).
+  - Identified the sections, main elements/components, and the [macro layout](../design/01-composition.jpg).
+
 ---
 
 ## [Date] - [Session]
