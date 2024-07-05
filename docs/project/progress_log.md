@@ -34,11 +34,11 @@
 
 ### TODO
 
-- Create a second Layout to be used on all pages except the home page, which includes an additional `margin-block-start` on the main element.
-- Mutate the files in `docs/content` to Markdown format to be usable within the content.
-- Define the project design tokens.
-- Initialize the project on GitHub and deploy.
-- Identify the sections, main elements/components, and the macro & micro layout.
+- ~~Create a second Layout to be used on all pages except the home page, which includes an additional `margin-block-start` on the main element.~~
+- ~~Mutate the files in `docs/content` to Markdown format to be usable within the content.~~
+- ~~Define the project design tokens.~~
+- ~~Initialize the project on GitHub and deploy.~~
+- ~~Identify the sections, main elements/components, and the macro & micro layout.~~
 
 ## 2024-07-05 - Morning
 
@@ -66,8 +66,8 @@
 
 ### TODO
 
-- Identify the sections, main elements/components, and the macro & micro layout.
-- Define the project design tokens.
+- ~~Identify the sections, main elements/components, and the macro & micro layout.~~
+- ~~Define the project design tokens.~~
 
 ## 2024-07-05 - Morning
 
@@ -87,6 +87,11 @@
 
   - Defined the project [design tokens](https://github.com/nicholasgillespie/portfolio-minimalist/tree/main/src/styles/00-settings).
   - Identified the sections, main elements/components, and the [macro layout](../design/01-composition.jpg).
+
+### TODO
+
+- Convert and import Public Sans font.
+- Insure all content is avaialable and displaying in Portfolio page and Project pages (images, links, etc.)
 
 ---
 
