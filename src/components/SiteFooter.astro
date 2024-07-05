@@ -10,7 +10,8 @@ import CompSocialLinks from "./CompSocialLinks.astro";
     <div class="l-repel">
       <div class="l-cluster">
         <CompLogoLink variant="secondary" />
-        <CompNavigation label="Secondary Navigation"/>
+        <!-- Omit label if navigation links are identical. -->
+        <CompNavigation label="Footer Navigation"/>
       </div>
       <CompSocialLinks />
     </div>
