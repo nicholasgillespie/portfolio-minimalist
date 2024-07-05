@@ -22,18 +22,18 @@ const items = (await getCollection("projects")).sort(
 				<li class="l-flow">					
 					<picture>
 						<source 
-							srcset={`/images/pages/${metaTitle.toLowerCase()}/desktop/image-portfolio-${item.slug}.jpg 1x, /images/pages/${metaTitle.toLowerCase()}/desktop/image-portfolio-${item.slug}@2x.jpg 2x`} 
+							srcset={`${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/desktop/image-portfolio-${item.slug}.jpg 1x, ${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/desktop/image-portfolio-${item.slug}@2x.jpg 2x`} 
 							media="(min-width: 55.001rem)" 
 							type="image/jpg"
 						/>
 						<source 
-							srcset={`/images/pages/${metaTitle.toLowerCase()}/tablet/image-portfolio-${item.slug}.jpg 1x, /images/pages/${metaTitle.toLowerCase()}/tablet/image-portfolio-${item.slug}@2x.jpg 2x`} 
+							srcset={`${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/tablet/image-portfolio-${item.slug}.jpg 1x, ${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/tablet/image-portfolio-${item.slug}@2x.jpg 2x`} 
 							media="(min-width: 40.001rem)" .
 							type="image/jpg"
 						/>
 						<img 
-							src={`/images/pages/${metaTitle.toLowerCase()}/mobile/image-portfolio-${item.slug}.jpg`} 
-							srcset={`/images/pages/${metaTitle.toLowerCase()}/mobile/image-portfolio-${item.slug}.jpg 1x, /images/pages/${metaTitle.toLowerCase()}/mobile/image-portfolio-${item.slug}@2x.jpg 2x`} 
+							src={`${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/mobile/image-portfolio-${item.slug}.jpg`} 
+							srcset={`${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/mobile/image-portfolio-${item.slug}.jpg 1x, ${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/mobile/image-portfolio-${item.slug}@2x.jpg 2x`} 
 							alt={`${item.data.title} Project Image`} 
 							width="540"
 							height="500"
