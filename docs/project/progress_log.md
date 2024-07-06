@@ -90,9 +90,14 @@
 
 ### TODO
 
-- Pursue Beyond.
 - Convert and import Public Sans font.
 - Insure all content is avaialable and displaying in Portfolio page and Project pages (images, links, etc.)
+
+## 2024-07-06 - Morning
+
+### Technology-Specific Pages
+
+- Developed technology-specific pages to showcase projects by the technologies used.
 
 ---
 

@@ -2,6 +2,7 @@
 // Imports
 import LayoutDefault from '../../layouts/LayoutDefault.astro';
 import { getCollection } from 'astro:content';
+import { CONFIG_BASE } from "../../consts";
 
 // Dynamic Data & Logic 
   export async function getStaticPaths() {
@@ -14,7 +15,6 @@ import { getCollection } from 'astro:content';
   
   // Component Props
   const { item } = Astro.props;
-  const { Content } = await item.render();
 ---
 
 <LayoutDefault metaTitle={item.data.title} metaDescription={item.data.description}>
@@ -22,9 +22,14 @@ import { getCollection } from 'astro:content';
     <h1>{item.data.title}</h1>
     <p><strong>Description:</strong> {item.data.description}</p>
     <p><strong>Category:</strong> {item.data.category}</p>
-    <p><strong>Technologies:</strong> {item.data.technologies}</p>
-    <!-- <a href={item.data.link} target="_blank" rel="noopener noreferrer">Visit Website</a> -->
-    <p>update</p>
+    <p><strong>Technologies:</strong></p>
+    <ul role="list" class="l-cluster">
+      {item.data.technologies.map(tech => (
+        <li>
+          <a href={`${CONFIG_BASE}/technologies/${tech.toLowerCase().replace(/\s+/g, "-")}`}>{tech}</a>
+        </li>
+      ))}
+    </ul>
     <p><strong>Project Background:</strong> {item.data.background}</p>
   </div>
 </LayoutDefault>

@@ -1,0 +1,39 @@
+---
+// Imports
+import LayoutDefault from '../../layouts/LayoutDefault.astro';
+import { getCollection } from 'astro:content';
+
+// Dynamic Data & Logic 
+export async function getStaticPaths() {
+  const items = await getCollection("projects");
+  const technologies = [...new Set(items.flatMap(item => item.data.technologies))];
+
+  return technologies.map(tech => {    
+    const techSlug = tech.toLowerCase().replace(/\s/g, '-');   
+    const filteredItems = items.filter(item => item.data.technologies.includes(tech));
+
+    return {
+      params: { technologies: techSlug },
+      props: { items: filteredItems },
+    }
+  });
+}
+
+// Component Props
+const { items } = Astro.props;
+---
+
+<LayoutDefault>
+  <div class="l-wrapper l-flow">
+    <h1>Technologies</h1>
+    <ul role="list" class="l-grid">
+      {items.map((item) => (
+        <li class="l-flow">
+          <h2>{item.data.title}</h2>
+          <p>{item.data.category}</p>
+          <p>{item.data.technologies}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</LayoutDefault>

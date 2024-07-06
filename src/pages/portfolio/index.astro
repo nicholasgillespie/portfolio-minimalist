@@ -9,16 +9,16 @@ const metaTitle = "Portfolio";
 const metaDescription = "xxx";
 
 // Dynamic Data & Logic
-const items = (await getCollection("projects")).sort(
-  (a, b) => a.data.order - b.data.order
-);
+const items = (await getCollection("projects"))
+  .filter(item => item.data.featured === true)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
 
 <LayoutDefault {metaTitle} {metaDescription}>
 	<section class="l-wrapper">
     <ul role="list" class="articles | l-grid">
 
-      {items.map((item) => (
+      {items.slice(0, 3).map((item) => (
 				<li class="l-flow">					
 					<picture>
 						<source 
@@ -42,10 +42,21 @@ const items = (await getCollection("projects")).sort(
 					</picture>
 					<h2 class="u-font-size-2">{item.data.title}</h2>
 					<p>{item.data.description}</p>
-					<a href={`${CONFIG_BASE}/${metaTitle.toLowerCase()}/${item.slug}`}>link</a>
+					<a href={`${CONFIG_BASE}/${metaTitle.toLowerCase()}/${item.slug}`}>
+						view <span class="u-vh">{item.slug}</span> project
+					</a>
 				</li>
       ))}
 
     </ul>
 	</section>
 </LayoutDefault>
+
+<style lang="scss">
+	picture img {
+		object-fit: cover;
+		block-size: 100%;
+		inline-size: 100%;
+		aspect-ratio: 540 / 500;
+	}
+</style>
