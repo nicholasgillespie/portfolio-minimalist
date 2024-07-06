@@ -90,6 +90,7 @@
 
 ### TODO
 
+- Pursue Beyond.
 - Convert and import Public Sans font.
 - Insure all content is avaialable and displaying in Portfolio page and Project pages (images, links, etc.)
 
