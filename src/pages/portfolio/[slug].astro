@@ -26,7 +26,7 @@ import { CONFIG_BASE } from "../../consts";
     <ul role="list" class="l-cluster">
       {item.data.technologies.map(tech => (
         <li>
-          <a href={`${CONFIG_BASE}/technologies/${tech.toLowerCase().replace(/\s+/g, "-")}`}>{tech}</a>
+          <a href={`${CONFIG_BASE}/technologies/${tech.toLowerCase().replaceAll(' ', '-')}`}>{tech}</a>
         </li>
       ))}
     </ul>

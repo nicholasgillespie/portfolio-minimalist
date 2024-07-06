@@ -90,14 +90,18 @@
 
 ### TODO
 
-- Convert and import Public Sans font.
-- Insure all content is avaialable and displaying in Portfolio page and Project pages (images, links, etc.)
+- ~~Convert and import Public Sans font.~~
+- ~~Insure all content is avaialable and displaying in Portfolio page and Project pages (images, links, etc.)~~
 
 ## 2024-07-06 - Morning
 
 ### Technology-Specific Pages
 
-- Developed technology-specific pages to showcase projects by the technologies used.
+- Developed technology-specific page to showcase projects by the technologies used.
+
+### TODO
+
+- Develop pages in alignment with design specifications. Lets go!
 
 ---
 

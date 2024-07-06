@@ -9,7 +9,7 @@ export async function getStaticPaths() {
   const technologies = [...new Set(items.flatMap(item => item.data.technologies))];
 
   return technologies.map(tech => {    
-    const techSlug = tech.toLowerCase().replace(/\s/g, '-');   
+    const techSlug = tech.toLowerCase().replaceAll(' ', '-');
     const filteredItems = items.filter(item => item.data.technologies.includes(tech));
 
     return {
@@ -25,13 +25,12 @@ const { items } = Astro.props;
 
 <LayoutDefault>
   <div class="l-wrapper l-flow">
-    <h1>Technologies</h1>
+    <h1>{Astro.params.technologies.replaceAll('-', ' ').toUpperCase()}</h1>
     <ul role="list" class="l-grid">
       {items.map((item) => (
         <li class="l-flow">
           <h2>{item.data.title}</h2>
           <p>{item.data.category}</p>
-          <p>{item.data.technologies}</p>
         </li>
       ))}
     </ul>

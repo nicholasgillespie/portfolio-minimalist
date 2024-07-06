@@ -17,3 +17,12 @@ import CompSocialLinks from "./CompSocialLinks.astro";
     </div>
   </div>
 </footer>
+
+<style lang="scss">
+  @use "../styles/10-functions/theme-accessor" as *;
+
+  footer {
+    background-color: get(background-color, grayish-dark-blue);
+    color: #FFFFFF;
+  }
+</style>
