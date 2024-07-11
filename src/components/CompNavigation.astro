@@ -15,7 +15,7 @@ const currentPath = currentUrl.pathname;
     {SITE_NAVIGATION.map(item => (
       <li>
         <a 
-          href={`${CONFIG_BASE}${item.url}`}
+          href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
           aria-current={currentPath === item.url ? 'page' : undefined}
         >{item.label}</a>
       </li>

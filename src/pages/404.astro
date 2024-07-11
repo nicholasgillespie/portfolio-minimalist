@@ -1,6 +1,7 @@
 ---
 // Imports
 import LayoutDefault from '../layouts/LayoutDefault.astro';
+import { CONFIG_BASE } from "../consts";
 
 // Static Data
 const metaTitle = "404";
@@ -10,5 +11,6 @@ const metaDescription = "Page Not Found - The requested page could not be found 
 <LayoutDefault {metaTitle} {metaDescription}>
 	<section class="l-wrapper">
 		<h1>404 page</h1>
+		<a href={CONFIG_BASE}>home</a>
 	</section>
 </LayoutDefault>

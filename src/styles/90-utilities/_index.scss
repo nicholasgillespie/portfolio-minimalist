@@ -1,5 +1,6 @@
 @use "../20-mixins/theme-applier" as *;
 
+@use "./border";
 @use "./emphasise";
 @use "./match-radii";
 @use "./overflow";

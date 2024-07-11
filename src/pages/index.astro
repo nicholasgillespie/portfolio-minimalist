@@ -1,6 +1,8 @@
 ---
 // Imports
 import LayoutLanding from '../layouts/LayoutLanding.astro';
+import { CONFIG_BASE } from "../consts";
+import CompButton from '../components/CompButton.astro';
 
 // Static Data
 const metaTitle = "Home";
@@ -8,7 +10,160 @@ const metaDescription = "Explore the Modern Art Gallery, a sanctuary of inspirat
 ---
 
 <LayoutLanding {metaTitle} {metaDescription}>
-	<section class="l-wrapper">
-		<h1>index page</h1>
+	<section class="hero | l-wrapper">
+		<picture class="hero__image | l-frame">
+			<source 
+				srcset={`${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-hero.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-hero@2x.jpg 2x`} 
+				media="(min-width: 55.001rem)" 
+				type="image/jpg"
+			/>
+			<source 
+				srcset={`${CONFIG_BASE}/images/pages/homepage/tablet/image-homepage-hero.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/tablet/image-homepage-hero@2x.jpg 2x`} 
+				media="(min-width: 40.001rem)" .
+				type="image/jpg"
+			/>
+			<img 
+				src={`${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-hero.jpg`} 
+				srcset={`${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-hero.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-hero@2x.jpg 2x`} 
+				alt={`Image of a screen displaying the Manage project`} 
+				width="311"
+				height="271"
+				loading="eager"
+			/>
+		</picture>
+		<div class="hero__heading | l-flow">
+			<h1>Hey, I’m Alex Spencer and I love building beautiful websites</h1>
+			<CompButton href="#about" text="About Me" />
+		</div>
+	</section>
+
+	<section id="about" class="about | l-wrapper l-region l-switcher">
+		<picture class="about__image | l-frame">
+			<source 
+				srcset={`${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-profile.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/desktop/image-homepage-profile@2x.jpg 2x`} 
+				media="(min-width: 55.001rem)" 
+				type="image/jpg"
+			/>
+			<source 
+				srcset={`${CONFIG_BASE}/images/pages/homepage/tablet/image-homepage-profile.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/tablet/image-homepage-profile@2x.jpg 2x`} 
+				media="(min-width: 40.001rem)" .
+				type="image/jpg"
+			/>
+			<img 
+				src={`${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-profile.jpg`} 
+				srcset={`${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-profile.jpg 1x, ${CONFIG_BASE}/images/pages/homepage/mobile/image-homepage-profile@2x.jpg 2x`} 
+				alt={`Image of a screen displaying the Manage project`} 
+				width="311"
+				height="346"
+				loading="eager"
+			/>
+		</picture>
+		<div class="about__description | u-border--block">
+			<div class="l-stack">
+				<h2>About Me</h2>
+				<p>I’m a junior front-end developer looking for a new role in an exciting company. I focus on writing accessible HTML, using modern CSS practices and writing clean JavaScript. When writing JavaScript code, I mostly use React, but I can adapt to whatever tools are required. I’m based in London, UK, but I’m happy working remotely and have experience in remote teams. When I’m not coding, you’ll find me outdoors. I love being out in nature whether that’s going for a walk, run or cycling. I’d love you to check out my work.</p>
+				<CompButton href="/portfolio" text="Go to Portfolio" />
+			</div>
+		</div>
 	</section>
 </LayoutLanding>
+
+<style lang="scss">
+	@use "../styles/20-mixins/media-query" as *;
+	
+	.hero {
+		--box-bg: var(--color-very-light-grey);
+
+		&__image {
+			--frame-width: 311;
+			--frame-height: 271;
+			position: relative;
+		}
+
+		&__heading {
+			padding-block-start: var(--space-gutter);
+		}
+	}
+
+	.about {
+		--switcher-item-target-width: 999rem;
+		
+		&__image {
+			--frame-width: 311;
+			--frame-height: 346;
+			object-position: right;
+		}
+
+		&__description {
+			padding-block: var(--space-gutter);
+		}
+	}
+	
+	@include media-query(from, tablet) {
+		.hero {
+			&__image {
+				--frame-width: 688;
+				--frame-height: 600;
+			}
+			
+			&__heading {
+				position: absolute;
+				inset-block-end: 0;
+				padding: var(--space-gutter) var(--space-gutter) 0 0;
+				background-color: var(--color-very-light-grey);
+				
+				h1 {
+					max-inline-size: 17ch;
+				}
+			}
+		}
+
+		.about {
+			--switcher-item-target-width: 0.001rem;
+			--switcher-vertical-alignment: stretch;
+
+			&__image {
+				--frame-width: 281;
+				--frame-height: 600;
+
+				img {
+					outline: solid 10px blue;
+					object-position: right;
+				}
+			}
+				
+
+			&__description {
+				--stack-vertical-alignment: center;
+
+				& > .l-stack {
+					block-size: 100%;
+				}
+			}
+		}
+	}
+	
+	@include media-query(from, desktop) {
+		.hero {
+			&__image {
+				--frame-width: 1110;
+				--frame-height: 600;
+			}
+			
+			&__heading {				
+				padding: var(--space-gutter-s) var(--space-gutter-s) 0 0;
+
+				h1 {
+					max-inline-size: 13ch;
+				}
+			}
+		}
+
+		.about {
+			&__image {
+				--frame-width: 540;
+				--frame-height: 600;
+			}
+		}
+	}
+</style>

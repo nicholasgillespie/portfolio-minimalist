@@ -1,0 +1,18 @@
+/*
+ * BORDER UTILITY
+ * A utility that sets the border of an element.
+ */
+
+.u-border {
+  &--block {
+    border-block: solid var(--border-width) #dcdcde;
+  }
+
+  &--bs {
+    border-block-start: solid var(--border-width) #dcdcde;
+  }
+
+  &--be {
+    border-block-end: solid var(--border-width) #dcdcde;
+  }
+}

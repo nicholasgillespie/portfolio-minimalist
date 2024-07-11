@@ -89,17 +89,17 @@
         // Generate utility classes for auto and zero spacing
         @if $tokenName == "spacing" {
           $propOrAbbr: abbreviate(listToString($property));
-          .u-#{$propOrAbbr}-auto {
+          .u-#{$propOrAbbr}--auto {
             #{$propertyValue}: auto;
           }
-          .u-#{$propOrAbbr}-zero {
+          .u-#{$propOrAbbr}--zero {
             #{$propertyValue}: 0;
           }
         }
 
         // Generate utility classes for each item in the token
         @each $itemName in map-keys($token) {
-          .u-#{$propOrAbbr}-#{$itemName} {
+          .u-#{$propOrAbbr}--#{$itemName} {
             #{$propertyValue}: var(--#{$prefix}-#{$itemName});
           }
         }
@@ -196,7 +196,7 @@
     // If the token and prefix are found, generate the custom utility classes
     @if $token != null and $tokenPrefix != null {
       @each $itemName, $itemValue in $token {
-        .u-#{$prefix}-#{$itemName} {
+        .u-#{$prefix}--#{$itemName} {
           #{$property}: var(--#{$tokenPrefix}-#{$itemName});
         }
       }
