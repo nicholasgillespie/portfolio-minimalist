@@ -18,12 +18,12 @@
   align-items: var(--sidebar-vertical-alignment, stretch);
   gap: var(--space-sidebar, var(--space-gutter));
 
-  & > :first-child {
+  & > :where(.sidebar, :first-child) {
     flex-basis: var(--sidebar-target-width, 20rem);
     flex-grow: 1;
   }
 
-  & > :last-child {
+  & > :where(.not-sidebar, :last-child) {
     flex-basis: 0;
     flex-grow: 999;
     min-inline-size: var(--sidebar-content-min-width, 60%);

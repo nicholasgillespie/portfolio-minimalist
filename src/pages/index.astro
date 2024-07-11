@@ -66,6 +66,13 @@ const metaDescription = "Explore the Modern Art Gallery, a sanctuary of inspirat
 			</div>
 		</div>
 	</section>
+
+	<section class="interest | l-wrapper l-region l-sidebar">
+		<h2 class="sidebar">Interested in doing a project together?</h2>
+		<div class="not-sidebar">
+			<CompButton href="/contact" text="Contact Me" />
+		</div>
+	</section>
 </LayoutLanding>
 
 <style lang="scss">
@@ -87,6 +94,7 @@ const metaDescription = "Explore the Modern Art Gallery, a sanctuary of inspirat
 
 	.about {
 		--switcher-item-target-width: 999rem;
+		--space-region: var(--space-3xl) 0;
 		
 		&__image {
 			--frame-width: 311;
@@ -96,6 +104,18 @@ const metaDescription = "Explore the Modern Art Gallery, a sanctuary of inspirat
 
 		&__description {
 			padding-block: var(--space-gutter);
+		}
+	}
+
+	.interest {
+		--sidebar-vertical-alignment: center;
+		
+		@include media-query(from, tablet) {
+			background-color: lightblue;
+		}
+		
+		@include media-query(from, desktop) {
+			background-color: lightpink;
 		}
 	}
 	
@@ -121,6 +141,7 @@ const metaDescription = "Explore the Modern Art Gallery, a sanctuary of inspirat
 		.about {
 			--switcher-item-target-width: 0.001rem;
 			--switcher-vertical-alignment: stretch;
+			--space-switcher: calc(var(--space-gutter) * 2);
 
 			&__image {
 				--frame-width: 281;
@@ -160,6 +181,7 @@ const metaDescription = "Explore the Modern Art Gallery, a sanctuary of inspirat
 		}
 
 		.about {
+
 			&__image {
 				--frame-width: 540;
 				--frame-height: 600;
