@@ -1,8 +1,9 @@
 @use "../10-functions/theme-accessor" as *;
 
 .button {
-  --button-x-padding: 1.5em;
-  --button-y-padding: 1.25em;
+  --button-x-padding: 2.5em;
+  --button-y-padding: 1.3em;
+  --button-border-color: #{get(color, grayish-dark-blue)};
 
   display: inline-flex;
   align-items: center;
@@ -12,22 +13,23 @@
   padding: var(--button-padding, 0);
   cursor: pointer;
   text-decoration: none;
-  border: var(--button-border, solid var(--border-width, medium) transparent);
+  border: var(
+    --button-border,
+    solid var(--border-width, medium) var(--button-border-color, transparent)
+  );
   border-radius: var(--button-radius, 0em);
-  font-size: inherit;
-  font-family: get(font-family, display);
+  font-size: get(font-size, -2);
+  font-family: get(font-family, base);
   // font-weight: get(font-weight, semi-bold);
-  line-height: var(--line-height-flat);
+  line-height: get(line-height, flat);
   letter-spacing: get(letter-spacing, extra-loose);
   text-transform: uppercase;
   background-color: var(--button-bg, transparent);
-  // color: var(--button-text, get(color, white));
+  color: var(--button-text, get(color, grayish-dark-blue));
   min-inline-size: fit-content;
 
   & span {
-    // background-color: get(background-color, almost-black);
     padding: var(--button-y-padding) var(--button-x-padding);
-    padding-inline-end: calc(var(--button-x-padding) * 3.5);
   }
 
   & svg {
@@ -41,7 +43,8 @@
   &:hover,
   &:focus-visible {
     & span {
-      // background-color: get(background-color, gold);
+      background-color: get(color, grayish-dark-blue);
+      color: get(color, very-light-grey);
     }
 
     & svg {

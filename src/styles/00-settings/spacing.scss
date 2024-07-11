@@ -69,11 +69,21 @@ $spacing: (
       "min": 40,
       "max": 60,
     ),
+    (
+      "name": "2XL - 3XL",
+      "min": 72,
+      "max": 120,
+    ),
     // space value pairs - custom steps,
     (
         "name": "S - L",
         "min": 18,
         "max": 40,
       ),
+    (
+      "name": "M - XL",
+      "min": 27,
+      "max": 60,
+    ),
   ),
 );

@@ -31,7 +31,7 @@
   --space-gutter-m: #{get(space, m-l)};
   --space-gutter-l: #{get(space, l-xl)};
   // --space-gutter-xl: #{get(space, xl-2xl)};
-  --space-region: #{get(space, 3xl)};
+  --space-region: #{get(space, "2xl-3xl")};
   // --space-region-s: #{get(space, m-2xl)};
 
   // Typography

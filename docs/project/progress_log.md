@@ -103,6 +103,16 @@
 
 - Develop pages in alignment with design specifications. Lets go!
 
+## 2024-07-11 - Full day
+
+### Homepage Implementation
+
+- Created homepage.
+
+### TODO
+
+- Deal with the different possible button variants.
+
 ---
 
 ## [Date] - [Session]

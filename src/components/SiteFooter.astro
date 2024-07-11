@@ -20,9 +20,15 @@ import CompSocialLinks from "./CompSocialLinks.astro";
 
 <style lang="scss">
   @use "../styles/10-functions/theme-accessor" as *;
+  @use "../styles/20-mixins/media-query" as *;
 
   footer {
+    --space-region: #{get(space, l)};
     background-color: get(background-color, grayish-dark-blue);
     color: #FFFFFF;
+
+    @include media-query(from, tablet) {
+      --space-region: #{get(space, m)};
+    }
   }
 </style>
