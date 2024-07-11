@@ -3,6 +3,7 @@
 import LayoutLanding from '../layouts/LayoutLanding.astro';
 import { CONFIG_BASE } from "../consts";
 import CompButton from '../components/CompButton.astro';
+import SectInterest from '../components/SectInterest.astro';
 
 // Static Data
 const metaTitle = "Home";
@@ -67,12 +68,7 @@ const metaDescription = "Explore the Modern Art Gallery, a sanctuary of inspirat
 		</div>
 	</section>
 
-	<section class="interest | l-wrapper l-region l-sidebar">
-		<h2 class="sidebar">Interested in doing a project together?</h2>
-		<div class="not-sidebar">
-			<CompButton href="/contact" text="Contact Me" />
-		</div>
-	</section>
+	<SectInterest />
 </LayoutLanding>
 
 <style lang="scss">
@@ -106,18 +102,6 @@ const metaDescription = "Explore the Modern Art Gallery, a sanctuary of inspirat
 			padding-block: var(--space-gutter);
 		}
 	}
-
-	.interest {
-		--sidebar-vertical-alignment: center;
-		
-		@include media-query(from, tablet) {
-			background-color: lightblue;
-		}
-		
-		@include media-query(from, desktop) {
-			background-color: lightpink;
-		}
-	}
 	
 	@include media-query(from, tablet) {
 		.hero {
@@ -148,7 +132,6 @@ const metaDescription = "Explore the Modern Art Gallery, a sanctuary of inspirat
 				--frame-height: 600;
 
 				img {
-					outline: solid 10px blue;
 					object-position: right;
 				}
 			}

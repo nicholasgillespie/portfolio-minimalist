@@ -5,14 +5,14 @@
 
 .u-border {
   &--block {
-    border-block: solid var(--border-width) #dcdcde;
+    border-block: solid var(--border-width) var(--color-soft-light-grey);
   }
 
   &--bs {
-    border-block-start: solid var(--border-width) #dcdcde;
+    border-block-start: solid var(--border-width) var(--color-soft-light-grey);
   }
 
   &--be {
-    border-block-end: solid var(--border-width) #dcdcde;
+    border-block-end: solid var(--border-width) var(--color-soft-light-grey);
   }
 }
