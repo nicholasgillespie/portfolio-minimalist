@@ -40,7 +40,7 @@
 - ~~Initialize the project on GitHub and deploy.~~
 - ~~Identify the sections, main elements/components, and the macro & micro layout.~~
 
-## 2024-07-05 - Morning
+## 2024-07-04 - Morning
 
 ### Layout Development
 
