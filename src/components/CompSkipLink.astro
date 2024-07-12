@@ -1,7 +1,4 @@
 ---
-// Imports
-import { CONFIG_BASE } from "../consts";
-
 // Component Props
 const { targetId } = Astro.props;
 
@@ -14,12 +11,6 @@ const currentPath = currentUrl.pathname;
   href={`${currentPath}/#${targetId}`} 
   id={`skip-link-#${targetId}`} 
   class="skip-link button">{`Skip to ${targetId}`}
-  <div class="l-stack">
-    <span>{currentPath}</span>
-    <span>{CONFIG_BASE}</span>
-    <span>{targetId}</span>
-    <span>{`${currentPath}/#${targetId}`}</span>
-  </div>
 </a>
 
 <style lang="scss">
