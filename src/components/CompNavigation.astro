@@ -9,84 +9,24 @@ const { label } = Astro.props;
 const currentUrl = new URL(Astro.request.url, import.meta.env.SITE);
 const currentPath = currentUrl.pathname;
 
-const isCurrentPageV1 = (itemUrl) => {
-  // Adjust normalization to keep the slash for the root path
-  const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
-  
-  // Adjust the comparison for the home page to check against "/"
-  if (itemUrl === "/") {
-    // Check if the current path is exactly the root ("/") or matches CONFIG_BASE directly
-    // Assuming CONFIG_BASE is normalized (no trailing slash)
-    return normalizedCurrentPath === '/' || normalizedCurrentPath === CONFIG_BASE;
-  }
-  
-  const normalizedItemUrl = `${CONFIG_BASE}${itemUrl}`.replace(/\/$/, '');
-
-  // Check for exact match or if current path is a subpath of the item's URL
-  return normalizedCurrentPath === normalizedItemUrl || normalizedCurrentPath.startsWith(normalizedItemUrl + '/');
-};
-
 const isCurrentPage = (itemUrl) => {
   // Normalize currentPath and itemUrl by removing trailing slashes
   const normalizedCurrentPath = currentPath.replace(/\/$/, '');
   const normalizedItemUrl = `${CONFIG_BASE}${itemUrl}`.replace(/\/$/, '');
-  const basePaths = normalizedCurrentPath.split('/');
+  const basePathsSegments = normalizedCurrentPath.split('/');
+  const segmentIndex = CONFIG_BASE ? 2 : 1;
 
-  console.log("itemUrl", itemUrl);
-  console.log("normalizedCurrentPath", normalizedCurrentPath);
-  console.log("normalizedItemUrl", normalizedItemUrl);
-  console.log("normalizedCurrentPath.split('/')", normalizedCurrentPath.split('/'));
-  
-  console.log("---");
-  
   // Check for an exact match
   if (normalizedCurrentPath === normalizedItemUrl) return true;
-
-  // If itemUrl is '/portfolio', check if currentPath starts with '/portfolio/'
-  if (itemUrl === `/${basePaths[2]}` && normalizedCurrentPath.startsWith(`${CONFIG_BASE}/${basePaths[2]}`)) {
-    return true;
-  }
+  // Check if currentPath matches itemUrl with CONFIG_BASE and segment
+  if (itemUrl === `/${basePathsSegments[segmentIndex]}` && normalizedCurrentPath.startsWith(`${CONFIG_BASE}/${basePathsSegments[segmentIndex]}`)) return true;
 
   return false;
 };
 ---
 
-<!-- <nav aria-label={label}>
-  <ul role="list" class="l-cluster">
-    {SITE_NAVIGATION.map(item => (
-      <li>
-        <a 
-          href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
-          aria-current={currentPath === item.url ? 'page' : undefined}
-        >{item.label}</a>
-      </li>
-    ))}
-  </ul>
-</nav> -->
-
-
-<!-- <nav aria-label={label}>
-  <ul role="list" class="l-cluster">
-    <span>Current Path: {currentPath}</span>
-    {SITE_NAVIGATION.map(item => {
-      console.log("currentPath", currentPath);
-      
-
-      return (
-        <li>
-          <a 
-            href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
-            aria-current={currentPath.replace(/\/$/, '') === `${CONFIG_BASE}${item.url}`.replace(/\/$/, '') ? 'page' : undefined}
-          >{item.label}</a>
-        </li>
-      );
-    })}
-  </ul>
-</nav> -->
-
 <nav aria-label={label}>
   <ul role="list" class="l-cluster">
-    <span>Current Path: {currentPath}</span>
     {SITE_NAVIGATION.map(item => (
       <li>
         <a 
