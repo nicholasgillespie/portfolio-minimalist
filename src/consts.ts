@@ -3,8 +3,8 @@
 
 export const CONFIG_SITE = "https://nicholasgillespie.github.io";
 // CONFIG_BASE: "" (dev) or "/<app-path>" (prod)
-// export const CONFIG_BASE = "";
-export const CONFIG_BASE = "/portfolio-minimalist";
+export const CONFIG_BASE = "";
+// export const CONFIG_BASE = "/portfolio-minimalist";
 
 export const SITE_TITLE = "Portfolio Minimalist";
 export const SITE_NAVIGATION = [
