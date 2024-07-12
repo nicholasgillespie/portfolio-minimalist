@@ -7,41 +7,35 @@ const { label } = Astro.props;
 
 // Dynamic Data & Logic
 const currentUrl = new URL(Astro.request.url, import.meta.env.SITE);
-const currentPath = currentUrl.pathname;
----
+let currentPath = currentUrl.pathname;
 
-<!-- <nav aria-label={label}>
-  <ul role="list" class="l-cluster">
-    {SITE_NAVIGATION.map(item => (
-      <li>
-        <a 
-          href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
-          aria-current={currentPath === item.url ? 'page' : undefined}
-        >{item.label}</a>
-      </li>
-    ))}
-  </ul>
-</nav> -->
+// Adjust currentPath by removing CONFIG_BASE in production
+if (CONFIG_BASE && currentPath.startsWith(CONFIG_BASE)) {
+  currentPath = currentPath.substring(CONFIG_BASE.length);
+  // Ensure currentPath starts with a slash after adjustment
+  if (!currentPath.startsWith('/')) {
+    currentPath = '/' + currentPath;
+  }
+}
+
+---
 
 <nav aria-label={label}>
   <ul role="list" class="l-cluster">
-    <li>
-      <a 
-        href={`${CONFIG_BASE}`}
-        aria-current={currentPath === "/" ? 'page' : undefined}
-      >Home</a>
-    </li>
-    <li>
-      <a 
-        href={`${CONFIG_BASE}/portfolio`}
-        aria-current={currentPath === "/portfolio" ? 'page' : undefined}
-      >Portfolio</a>
-    </li>
-    <li>
-      <a 
-        href={`${CONFIG_BASE}/contact`}
-        aria-current={currentPath === "/contact" ? 'page' : undefined}
-      >Contact Me</a>
-    </li>
+    {SITE_NAVIGATION.map(item => {
+      // Logging inside the loop with adjusted currentPath
+      console.log("currentUrl: " + currentUrl.toString());
+      console.log("Adjusted currentPath: " + currentPath);
+      console.log("item.url: " + item.url);
+
+      return (
+        <li>
+          <a 
+            href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
+            aria-current={currentPath === item.url ? 'page' : undefined}
+          >{item.label}</a>
+        </li>
+      );
+    })}
   </ul>
 </nav>
