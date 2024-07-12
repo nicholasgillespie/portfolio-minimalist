@@ -20,7 +20,7 @@ const { metaTitle, metaDescription } = Astro.props;
   <meta name="description" content={`${metaDescription}`} />
 
   <!-- Base URL -->
-  <!-- <base href={CONFIG_BASE === "" ? "/" : CONFIG_BASE} /> -->
+  <base href={CONFIG_BASE === "" ? "/" : CONFIG_BASE} />
 
   <!-- Canonical link -->
   <link rel="canonical" href={`${CONFIG_SITE}${CONFIG_BASE}`} />
