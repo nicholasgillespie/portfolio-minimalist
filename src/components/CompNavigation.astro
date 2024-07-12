@@ -13,8 +13,9 @@ const isCurrentPage = (itemUrl) => {
   const normalizedCurrentPath = currentPath.replace(/\/$/, '');
   // Adjust the comparison for the home page
   if (itemUrl === "/") {
-    // Check if the current path is the root or matches CONFIG_BASE (for home page)
-    return normalizedCurrentPath === '' || normalizedCurrentPath === CONFIG_BASE.replace(/\/$/, '');
+    // Check if the current path is exactly the root ("/") or matches CONFIG_BASE directly
+    // Assuming CONFIG_BASE is normalized (no trailing slash)
+    return normalizedCurrentPath === '' || normalizedCurrentPath === CONFIG_BASE;
   }
   const normalizedItemUrl = `${CONFIG_BASE}${itemUrl}`.replace(/\/$/, '');
 
