@@ -27,14 +27,27 @@ const isCurrentPageV1 = (itemUrl) => {
 };
 
 const isCurrentPage = (itemUrl) => {
-  console.log("currentPath", currentPath);
-  console.log("itemUrl", itemUrl);
-  console.log("currentPath.replace(/\/$/, '')", currentPath.replace(/\/$/, ''));
-  console.log("---");
+  // Normalize currentPath and itemUrl by removing trailing slashes
+  const normalizedCurrentPath = currentPath.replace(/\/$/, '');
+  const normalizedItemUrl = `${CONFIG_BASE}${itemUrl}`.replace(/\/$/, '');
+  const basePaths = normalizedCurrentPath.split('/');
 
-  // if (currentPath === itemUrl) return true;
+  console.log("itemUrl", itemUrl);
+  console.log("normalizedCurrentPath", normalizedCurrentPath);
+  console.log("normalizedItemUrl", normalizedItemUrl);
+  console.log("normalizedCurrentPath.split('/')", normalizedCurrentPath.split('/'));
   
-  return currentPath.replace(/\/$/, '') === `${CONFIG_BASE}${itemUrl}`.replace(/\/$/, '');
+  console.log("---");
+  
+  // Check for an exact match
+  if (normalizedCurrentPath === normalizedItemUrl) return true;
+
+  // If itemUrl is '/portfolio', check if currentPath starts with '/portfolio/'
+  if (itemUrl === `/${basePaths[2]}` && normalizedCurrentPath.startsWith(`${CONFIG_BASE}/${basePaths[2]}`)) {
+    return true;
+  }
+
+  return false;
 };
 ---
 
