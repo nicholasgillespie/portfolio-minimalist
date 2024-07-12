@@ -11,7 +11,11 @@ const currentPath = currentUrl.pathname;
 
 const isCurrentPage = (itemUrl) => {
   const normalizedCurrentPath = currentPath.replace(/\/$/, '');
-  const normalizedItemUrl = `${CONFIG_BASE}${itemUrl === "/" ? "" : itemUrl}`.replace(/\/$/, '');
+  // Special handling for the root ("/") to avoid matching all subpaths
+  if (itemUrl === "/") {
+    return normalizedCurrentPath === '';
+  }
+  const normalizedItemUrl = `${CONFIG_BASE}${itemUrl}`.replace(/\/$/, '');
 
   // Check for exact match or if current path is a subpath of the item's URL
   return normalizedCurrentPath === normalizedItemUrl || normalizedCurrentPath.startsWith(normalizedItemUrl + '/');
