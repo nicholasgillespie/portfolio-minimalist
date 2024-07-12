@@ -81,6 +81,8 @@ const items = (await getCollection("projects"))
 		}
 
 		&__description {
+			display: inline-flex;
+
 			& > div {
 				padding-block-start: var(--space-l);
 				padding-block-end: var(--space-s-l);
@@ -113,6 +115,10 @@ const items = (await getCollection("projects"))
 
 			&__description {
 				--stack-vertical-alignment: center;
+
+				:first-child:not(p) {
+					inline-size: 100%;
+				}
 
 				p {
 					max-inline-size: 35ch;
