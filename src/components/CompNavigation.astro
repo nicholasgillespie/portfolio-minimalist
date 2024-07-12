@@ -10,21 +10,19 @@ const currentUrl = new URL(Astro.request.url, import.meta.env.SITE);
 const currentPath = currentUrl.pathname;
 
 const isCurrentPage = (itemUrl) => {
-  // Direct comparison for non-root paths or root path
-  if (currentPath === itemUrl) {
-    return true;
+  // Adjust normalization to keep the slash for the root path
+  const normalizedCurrentPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+  
+  // Adjust the comparison for the home page to check against "/"
+  if (itemUrl === "/") {
+    // Check if the current path is exactly the root ("/") or matches CONFIG_BASE directly
+    // Assuming CONFIG_BASE is normalized (no trailing slash)
+    return normalizedCurrentPath === '/' || normalizedCurrentPath === CONFIG_BASE;
   }
+  
+  const normalizedItemUrl = `${CONFIG_BASE}${itemUrl}`.replace(/\/$/, '');
 
-  // Specific handling for root path
-  if (itemUrl === '/') {
-    return currentPath === '/';
-  }
-
-  // Normalize paths by removing trailing slashes for comparison
-  const normalizedCurrentPath = currentPath.replace(/\/$/, '');
-  const normalizedItemUrl = itemUrl.replace(/\/$/, '');
-
-  // Check for exact match or subpath
+  // Check for exact match or if current path is a subpath of the item's URL
   return normalizedCurrentPath === normalizedItemUrl || normalizedCurrentPath.startsWith(normalizedItemUrl + '/');
 };
 ---
