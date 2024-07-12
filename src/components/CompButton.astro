@@ -1,14 +1,14 @@
 ---
 // Component Props
-const { href, text, variant = "primary" } = Astro.props;
+const { href, text, variant = "primary", ariaLabel } = Astro.props;
 ---
 
 {href ? (
-  <a class="button" href={href} data-button-variant={variant}>
-    <span>{text}</span>   
+  <a class="button" href={href} data-button-variant={variant} aria-label={ariaLabel || text}>
+    <span inert>{text}</span>   
   </a>
 ) : (
-  <button class="button" data-button-variant={variant}>
-    <span>{text}</span>
+  <button class="button" data-button-variant={variant} aria-label={ariaLabel || text}>
+    <span inert>{text}</span>
   </button>
 )}

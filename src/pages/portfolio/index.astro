@@ -3,6 +3,8 @@
 import { getCollection } from "astro:content";
 import LayoutDefault from '../../layouts/LayoutDefault.astro';
 import { CONFIG_BASE } from "../../consts";
+import SectInterest from "../../components/SectInterest.astro";
+import CompButton from "../../components/CompButton.astro";
 
 // Static Data
 const metaTitle = "Portfolio";
@@ -16,11 +18,11 @@ const items = (await getCollection("projects"))
 
 <LayoutDefault {metaTitle} {metaDescription}>
 	<section class="l-wrapper">
-    <ul role="list" class="articles | l-grid">
+    <ul role="list">
 
       {items.slice(0, 4).map((item) => (
-				<li class="l-flow">					
-					<picture>
+				<li class="articles | l-switcher">					
+					<picture class="articles__picture | l-frame">
 						<source 
 							srcset={`${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/desktop/image-portfolio-${item.slug}.jpg 1x, ${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/desktop/image-portfolio-${item.slug}@2x.jpg 2x`} 
 							media="(min-width: 55.001rem)" 
@@ -35,28 +37,90 @@ const items = (await getCollection("projects"))
 							src={`${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/mobile/image-portfolio-${item.slug}.jpg`} 
 							srcset={`${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/mobile/image-portfolio-${item.slug}.jpg 1x, ${CONFIG_BASE}/images/pages/${metaTitle.toLowerCase()}/mobile/image-portfolio-${item.slug}@2x.jpg 2x`} 
 							alt={`${item.data.title} Project Image`} 
-							width="540"
-							height="500"
+							width="311"
+							height="288"
 							loading="lazy"
 						/>
 					</picture>
-					<h2 class="u-font-size-2">{item.data.title}</h2>
-					<p>{item.data.description}</p>
-					<a href={`${CONFIG_BASE}/${metaTitle.toLowerCase()}/${item.slug}`}>
-						view <span class="u-vh">{item.slug}</span> project
-					</a>
+					<div class="articles__description">
+						<div class="l-stack | u-border--block">
+							<h2>{item.data.title}</h2>
+							<p>{item.data.description}</p>
+							<CompButton
+								href={`${CONFIG_BASE}/${metaTitle.toLowerCase()}/${item.slug}`}
+								text="View Project"
+								ariaLabel= {`view ${item.slug} project`}/>
+						</div>
+					</div>
 				</li>
       ))}
 
     </ul>
 	</section>
+	<SectInterest />
 </LayoutDefault>
 
 <style lang="scss">
-	picture img {
-		object-fit: cover;
-		block-size: 100%;
-		inline-size: 100%;
-		aspect-ratio: 540 / 500;
+	@use "../../styles/20-mixins/media-query" as *;
+
+	.articles {
+		--switcher-item-target-width: 39rem;
+
+		& + * {
+			margin-block-start: var(--space-2xl);
+		}
+
+		&:nth-of-type(even) {
+			flex-direction: row-reverse;
+		}
+
+		&__picture {
+			--frame-width: 311;
+			--frame-height: 288;
+			block-size: 100%;
+		}
+
+		&__description {
+			& > div {
+				padding-block: var(--space-l);
+			}
+		}
+	}
+
+	@include media-query(from, tablet) {
+		.articles {
+			--switcher-item-target-width: 0.001rem;
+			--switcher-vertical-alignment: stretch;
+			
+			&__picture {
+				--frame-width: 339;
+				--frame-height: 314;
+				margin-block: auto;
+			}
+
+			&__description {
+				--stack-vertical-alignment: center;
+				display: inline-flex;
+				
+				p {
+					max-inline-size: 35ch;
+				}
+			}
+		}
+	}
+
+	@include media-query(from, desktop) {
+		.articles {			
+			&__picture {
+				--frame-width: 540;
+				--frame-height: 500;
+			}
+
+			&__description {
+				& > div {
+					margin-inline: var(--space-xl);
+				}
+			}
+		}
 	}
 </style>
