@@ -7,5 +7,5 @@ export default defineConfig({
   integrations: [purgecss()],
   site: CONFIG_SITE,
   base: CONFIG_BASE,
-  trailingSlash: "never",
+  // trailingSlash: "never",
 });
