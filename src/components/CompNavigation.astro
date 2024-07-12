@@ -1,6 +1,6 @@
 ---
 // Imports
-import { SITE_NAVIGATION, CONFIG_BASE } from "../consts";
+import { SITE_NAVIGATION, CONFIG_SITE, CONFIG_BASE } from "../consts";
 
 // Component Props
 const { label } = Astro.props;
@@ -34,7 +34,7 @@ const currentPath = currentUrl.pathname;
         <li>
           <a 
             href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
-            aria-current={currentPath === `${CONFIG_BASE}${item.url}` ? 'page' : undefined}
+            aria-current={currentPath === `${CONFIG_SITE}${CONFIG_BASE}${item.url}` ? 'page' : undefined}
           >{item.label}</a>
         </li>
       );
