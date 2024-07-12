@@ -19,7 +19,9 @@ const isCurrentPage = (itemUrl) => {
   // Check for an exact match
   if (normalizedCurrentPath === normalizedItemUrl) return true;
   // Check if currentPath matches itemUrl with CONFIG_BASE and segment
-  if (itemUrl === `/${basePathsSegments[segmentIndex]}` && normalizedCurrentPath.startsWith(`${CONFIG_BASE}/${basePathsSegments[segmentIndex]}`)) return true;
+  if (itemUrl === `/${basePathsSegments[segmentIndex]}` && normalizedCurrentPath.startsWith(`${CONFIG_BASE}/${basePathsSegments[segmentIndex]}`)) {
+    return true
+  };
 
   return false;
 };

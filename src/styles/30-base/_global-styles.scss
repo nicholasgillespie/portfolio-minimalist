@@ -184,13 +184,17 @@ a {
 
   &[aria-current="page"] {
     color: get(color, slightly-desaturated-cyan);
-    pointer-events: none;
+    // pointer-events: none;
 
     &:hover,
     &:focus-visible {
       text-decoration: none;
     }
   }
+}
+
+.no-pointer-events {
+  pointer-events: none;
 }
 
 // BUTTON STYLES

@@ -113,6 +113,12 @@
 
 - Deal with the different possible button variants.
 
+## 2024-07-12 - Morning
+
+### Navigation links
+
+- Implemented `aria-current="page"` attribute in navigation links programmatically.
+
 ---
 
 ## [Date] - [Session]
