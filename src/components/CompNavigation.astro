@@ -35,7 +35,8 @@ const currentPath = currentUrl.pathname;
         <li>
           <a 
             href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
-            aria-current={currentPath === `${CONFIG_BASE}${item.url}` ? 'page' : undefined}
+            // aria-current={currentPath === `${CONFIG_BASE}${item.url}` ? 'page' : undefined}
+            aria-current={currentPath.replace(/\/$/, '') === `${CONFIG_BASE}${item.url}`.replace(/\/$/, '') ? 'page' : undefined}
           >{item.label}</a>
         </li>
       );
