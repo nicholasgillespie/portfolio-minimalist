@@ -3,8 +3,8 @@
 
 export const CONFIG_SITE = "https://nicholasgillespie.github.io";
 // CONFIG_BASE: "" (dev) or "/<app-path>" (prod)
-// export const CONFIG_BASE = "";
-export const CONFIG_BASE = "/portfolio-minimalist";
+export const CONFIG_BASE = "";
+// export const CONFIG_BASE = "/portfolio-minimalist";
 
 export const SITE_TITLE = "Portfolio Minimalist";
 export const SITE_NAVIGATION = [
@@ -16,5 +16,5 @@ export const SITE_NAVIGATION = [
 export const SOCIAL_MEDIA = [
   { label: "GitHub", url: "https://github.com/nicholasgillespie" },
   { label: "Twitter", url: "https://x.com/nikogillespie" },
-  { label: "LinkedIn", url: "https://www.linkedin.com/in/gillespie-nicholas/" },
+  { label: "LinkedIn", url: "https://www.linkedin.com/in/gillespie-nicholas" },
 ];
