@@ -18,21 +18,24 @@ if (CONFIG_BASE && currentPath.startsWith(CONFIG_BASE)) {
   }
 }
 
+// Helper function to adjust item.url for CONFIG_BASE
+function adjustUrlForConfigBase(url) {
+  return CONFIG_BASE ? `${CONFIG_BASE}${url === "/" ? "" : url}` : url;
+}
+
 ---
 
 <nav aria-label={label}>
   <ul role="list" class="l-cluster">
     {SITE_NAVIGATION.map(item => {
-      // Logging inside the loop with adjusted currentPath
-      console.log("currentUrl: " + currentUrl.toString());
-      console.log("Adjusted currentPath: " + currentPath);
-      console.log("item.url: " + item.url);
+      // Adjust item.url for CONFIG_BASE
+      const adjustedItemUrl = adjustUrlForConfigBase(item.url);
 
       return (
         <li>
           <a 
-            href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
-            aria-current={currentPath === item.url ? 'page' : undefined}
+            href={adjustedItemUrl}
+            aria-current={currentPath === new URL(adjustedItemUrl, import.meta.env.SITE).pathname ? 'page' : undefined}
           >{item.label}</a>
         </li>
       );
