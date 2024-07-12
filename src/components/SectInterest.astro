@@ -1,12 +1,13 @@
 ---
 // Imports
 import CompButton from '../components/CompButton.astro';
+import { CONFIG_BASE } from "../consts";
 ---
 
 <section class="interest | l-wrapper l-region l-sidebar">
   <h2 class="sidebar">Interested in doing a project together?</h2>
   <div class="not-sidebar">
-    <CompButton href="/contact" text="Contact Me" />
+    <CompButton href={`${CONFIG_BASE}/contact`} text="Contact Me" />
   </div>
 </section>
 
