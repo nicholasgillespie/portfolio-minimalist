@@ -20,22 +20,16 @@ if (CONFIG_BASE && currentPath.startsWith(CONFIG_BASE)) {
 
 ---
 
-<nav aria-label={label}>
-  <ul role="list" class="l-cluster">
-    {SITE_NAVIGATION.map(item => {
-      // Logging inside the loop with adjusted currentPath
-      console.log("currentUrl: " + currentUrl.toString());
-      console.log("Adjusted currentPath: " + currentPath);
-      console.log("item.url: " + item.url);
+{SITE_NAVIGATION.map(item => {
+  // Adjust item.url to include CONFIG_BASE for comparison
+  const adjustedItemUrl = `${CONFIG_BASE}${item.url === "/" ? "" : item.url}`;
 
-      return (
-        <li>
-          <a 
-            href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
-            aria-current={currentPath === item.url ? 'page' : undefined}
-          >{item.label}</a>
-        </li>
-      );
-    })}
-  </ul>
-</nav>
+  return (
+    <li>
+      <a 
+        href={adjustedItemUrl}
+        aria-current={currentPath === new URL(adjustedItemUrl, import.meta.env.SITE).pathname ? 'page' : undefined}
+      >{item.label}</a>
+    </li>
+  );
+})}
