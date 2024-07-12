@@ -8,6 +8,14 @@ const { label } = Astro.props;
 // Dynamic Data & Logic
 const currentUrl = new URL(Astro.request.url, import.meta.env.SITE);
 const currentPath = currentUrl.pathname;
+
+const isCurrentPage = (itemUrl) => {
+  const normalizedCurrentPath = currentPath.replace(/\/$/, '');
+  const normalizedItemUrl = `${CONFIG_BASE}${itemUrl === "/" ? "" : itemUrl}`.replace(/\/$/, '');
+
+  // Check for exact match or if current path is a subpath of the item's URL
+  return normalizedCurrentPath === normalizedItemUrl || normalizedCurrentPath.startsWith(normalizedItemUrl + '/');
+};
 ---
 
 <!-- <nav aria-label={label}>
@@ -24,7 +32,7 @@ const currentPath = currentUrl.pathname;
 </nav> -->
 
 
-<nav aria-label={label}>
+<!-- <nav aria-label={label}>
   <ul role="list" class="l-cluster">
     <span>Current Path: {currentPath}</span>
     {SITE_NAVIGATION.map(item => {
@@ -35,11 +43,24 @@ const currentPath = currentUrl.pathname;
         <li>
           <a 
             href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
-            // aria-current={currentPath === `${CONFIG_BASE}${item.url}` ? 'page' : undefined}
             aria-current={currentPath.replace(/\/$/, '') === `${CONFIG_BASE}${item.url}`.replace(/\/$/, '') ? 'page' : undefined}
           >{item.label}</a>
         </li>
       );
     })}
+  </ul>
+</nav> -->
+
+<nav aria-label={label}>
+  <ul role="list" class="l-cluster">
+    <span>Current Path: {currentPath}</span>
+    {SITE_NAVIGATION.map(item => (
+      <li>
+        <a 
+          href={`${CONFIG_BASE}${item.url === "/" ? "" : item.url}`}
+          aria-current={isCurrentPage(item.url) ? 'page' : undefined}
+        >{item.label}</a>
+      </li>
+    ))}
   </ul>
 </nav>
