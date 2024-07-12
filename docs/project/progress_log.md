@@ -109,15 +109,27 @@
 
 - Created homepage.
 
-### TODO
-
-- Deal with the different possible button variants.
-
 ## 2024-07-12 - Morning
 
 ### Navigation links
 
 - Implemented `aria-current="page"` attribute in navigation links programmatically.
+
+## 2024-07-12 - Afternoon
+
+### About Page
+
+- Created the About page.
+
+### Navigation and Skip Links
+
+- Adjusted URL paths in the navigation to ensure consistency and correct redirection.
+- Enhanced skip links for better accessibility, ensuring they correctly bypass navigation to main content.
+
+### TODO
+
+- Create Project page.
+- Deal with the different possible button variants.
 
 ---
 

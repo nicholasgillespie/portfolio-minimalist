@@ -91,6 +91,18 @@ const items = (await getCollection("projects"))
 		.articles {
 			--switcher-item-target-width: 0.001rem;
 			--switcher-vertical-alignment: stretch;
+
+			&:nth-of-type(odd) .articles__description {
+				& > div {
+					margin-inline-start: var(--space-l);
+				}
+			}
+
+			&:nth-of-type(even) .articles__description {
+				& > div {
+					margin-inline-end: var(--space-l);
+				}
+			}
 			
 			&__picture {
 				--frame-width: 339;
@@ -101,7 +113,8 @@ const items = (await getCollection("projects"))
 			&__description {
 				--stack-vertical-alignment: center;
 				display: inline-flex;
-				
+				gap: 0;
+
 				p {
 					max-inline-size: 35ch;
 				}
@@ -117,7 +130,7 @@ const items = (await getCollection("projects"))
 			}
 
 			&__description {
-				& > div {
+				& > :is(div, #specBoost) {
 					margin-inline: var(--space-xl);
 				}
 			}
