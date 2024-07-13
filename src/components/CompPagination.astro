@@ -35,7 +35,7 @@ import CompSvgSheet from "./CompSvgSheet.astro";
   @use "../styles/20-mixins/media-query" as *;
 
   .pagination {
-    --sidebar-target-width: 1ch;
+    --sidebar-target-width: 999rem;
     --sidebar-vertical-alignment: center;
     --space-sidebar: var(--space-2xs);
     --space-switcher: 0;
@@ -64,21 +64,10 @@ import CompSvgSheet from "./CompSvgSheet.astro";
     }
   }
 
-  @include media-query(up-to, tablet) {
-    .pagination {      
-      --sidebar-target-width: 999rem;
-      
-      & > :is(.l-sidebar, #specBoost) {
-        flex-wrap: wrap;
-        background-color: red;
-        --sidebar-target-width: 999rem;
-      }
-    }
-  }
-
   @include media-query(from, tablet) {
     .pagination {
       --space-sidebar: var(--space-gutter);
+      --sidebar-target-width: 0.001rem;
     }
   }
 </style>
