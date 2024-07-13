@@ -126,6 +126,16 @@
 - Adjusted URL paths in the navigation to ensure consistency and correct redirection.
 - Enhanced skip links for better accessibility, ensuring they correctly bypass navigation to main content.
 
+## 2024-07-13 - Morning
+
+### Detail Page
+
+- Created the Detail page.
+
+### Pagination
+
+- Develop the pagination component. Currently, it's structured to display previous and next project links visually. However, it still requires the capability to dynamically receive information about the page coming before (previous) and after (next).
+
 ### TODO
 
 - Create Project page.

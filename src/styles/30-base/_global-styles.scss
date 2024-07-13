@@ -72,6 +72,8 @@ h2 {
 
 h3 {
   font-size: get(font-size, 3);
+  font-weight: get(font-weight, base);
+  text-transform: capitalize;
 }
 
 h4,
