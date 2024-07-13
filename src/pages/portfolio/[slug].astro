@@ -225,8 +225,9 @@ import CompPagination from '../../components/CompPagination.astro';
     .project {
       --space-region: var(--space-2xl);
       --space-sidebar: var(--space-2xs-3xl);
+      flex-wrap: nowrap;
       
-      :is(.project__meta, #specBoost) {
+      &__meta {
         --sidebar-target-width: 22rem;
         display: block;
 
