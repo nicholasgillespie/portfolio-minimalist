@@ -114,9 +114,7 @@ import CompPagination from '../../components/CompPagination.astro';
   </section>
 
   <CompPagination />
-
   <SectInterest />
-
 </LayoutDefault>
 
 <style lang="scss">
@@ -226,11 +224,10 @@ import CompPagination from '../../components/CompPagination.astro';
 
     .project {
       --space-region: var(--space-2xl);
-      --sidebar-target-width: 22rem;
-      --sidebar-content-min-width: 1%;
       --space-sidebar: var(--space-2xs-3xl);
       
       &__meta {
+        --sidebar-target-width: 22rem;
         display: block;
 
         div:first-of-type p {
@@ -255,6 +252,7 @@ import CompPagination from '../../components/CompPagination.astro';
       &__preview {
         --frame-width: 635;
         --frame-height: 400;
+        --sidebar-content-min-width: 1%;
       }
     }
   }
