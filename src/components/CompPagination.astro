@@ -4,23 +4,25 @@ import CompSvgSheet from "./CompSvgSheet.astro";
 ---
 
 <section class="pagination | l-wrapper l-switcher">
-  <div class="l-sidebar | u-border--block">
+  <div class="previous | l-sidebar | u-border--block">
     <div>
-      <div>x</div>
-      <!-- <a href={item.url}>
-        <svg class="icon" fill="currentColor" viewBox={iconViewboxMap[item.label]}>
-          <use xlink:href={`#${item.label.toLowerCase()}`}></use>
-        </svg>
-        <span class="u-vh">{item.label}</span>
-      </a> -->
+      <svg class="icon" fill="currentColor" viewBox="0 0 10 16">
+        <use xlink:href="#arrow-left"></use>
+      </svg>
+      <span class="u-vh">Previous Project</span>  
     </div>
     <div class="l-flow">
       <h3>left</h3>
       <p>Previous Project</p>
     </div>
   </div>
-  <div class="l-sidebar | u-border--block">
-    <div>x</div>
+
+  <div class="next | l-sidebar | u-border--block">
+    <div>
+      <svg class="icon" fill="currentColor" viewBox="0 0 10 16">
+        <use xlink:href="#arrow-right"></use>
+      </svg>
+    </div>
     <div class="l-flow">
       <h3>right</h3>
       <p>Next Project</p>
@@ -35,9 +37,14 @@ import CompSvgSheet from "./CompSvgSheet.astro";
   .pagination {
     --sidebar-target-width: 1ch;
     --sidebar-vertical-alignment: center;
-    --space-sidebar: var(--space-gutter);
+    --space-sidebar: var(--space-2xs);
     --space-switcher: 0;
     flex-wrap: nowrap;
+    align-items: stretch;
+
+    .icon {
+      block-size: var(--font-size-base);
+    }
     
     & > div {
       --space-flow: .35em;
@@ -58,10 +65,16 @@ import CompSvgSheet from "./CompSvgSheet.astro";
   }
 
   @include media-query(up-to, tablet) {
-    .pagination {
+    .pagination {      
       & > .l-sidebar {
         --sidebar-target-width: 999rem;
       }
+    }
+  }
+
+  @include media-query(from, tablet) {
+    .pagination {
+      --space-sidebar: var(--space-gutter);
     }
   }
 </style>
