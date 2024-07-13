@@ -39,7 +39,7 @@ import CompSvgSheet from "./CompSvgSheet.astro";
     --sidebar-vertical-alignment: center;
     --space-sidebar: var(--space-2xs);
     --space-switcher: 0;
-    flex-wrap: nowrap;
+    // flex-wrap: nowrap;
     align-items: stretch;
 
     .icon {
@@ -48,9 +48,14 @@ import CompSvgSheet from "./CompSvgSheet.astro";
     
     & > div {
       --space-flow: .35em;
-      --sidebar-target-width: 999rem;
+      // --sidebar-target-width: 999rem;
       padding-block: var(--space-s-xl);
       color: var(--color-new-grey);
+      
+      & div:first-child {
+        background-color: red;
+        // inline-size: 100%;
+      }
     }
 
     & > div:first-child {
@@ -69,6 +74,10 @@ import CompSvgSheet from "./CompSvgSheet.astro";
     .pagination {
       --space-sidebar: var(--space-gutter);
       --sidebar-target-width: 0.001rem;
+
+      & div {
+        inline-size: unset;
+      }
     }
   }
 </style>
