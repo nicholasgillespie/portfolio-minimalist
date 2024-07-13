@@ -49,7 +49,7 @@ const items = (await getCollection("projects"))
 							<CompButton
 								href={`${CONFIG_BASE}/${metaTitle.toLowerCase()}/${item.slug}`}
 								text="View Project"
-								ariaLabel= {`view ${item.slug} project`}/>
+								ariaLabel= {`view ${item.data.title} project`}/>
 						</div>
 					</div>
 				</li>

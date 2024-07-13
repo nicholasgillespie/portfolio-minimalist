@@ -1,7 +1,9 @@
 ---
 title: "Bookmark"
 description: "  This project required me to build a fully responsive landing page to the designs provided. I used HTML5, along with CSS Grid and JavaScript for the areas that required interactivity, such as the features section."
-category: "Interaction Design / Front End Development"
+categories:
+  - Interaction Design
+  - Front End Development
 technologies:
   - HTML
   - CSS

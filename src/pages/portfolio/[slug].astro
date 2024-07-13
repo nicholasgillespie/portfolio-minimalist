@@ -3,6 +3,9 @@
 import LayoutDefault from '../../layouts/LayoutDefault.astro';
 import { getCollection } from 'astro:content';
 import { CONFIG_BASE } from "../../consts";
+import CompButton from '../../components/CompButton.astro';
+import SectInterest from '../../components/SectInterest.astro';
+import CompPagination from '../../components/CompPagination.astro';
 
 // Dynamic Data & Logic 
   export async function getStaticPaths() {
@@ -18,18 +21,242 @@ import { CONFIG_BASE } from "../../consts";
 ---
 
 <LayoutDefault metaTitle={item.data.title} metaDescription={item.data.description}>
-  <div class="l-wrapper l-flow">
-    <h1>{item.data.title}</h1>
-    <p><strong>Description:</strong> {item.data.description}</p>
-    <p><strong>Category:</strong> {item.data.category}</p>
-    <p><strong>Technologies:</strong></p>
-    <ul role="list" class="l-cluster">
-      {item.data.technologies.map(tech => (
-        <li>
-          <a href={`${CONFIG_BASE}/technologies/${tech.toLowerCase().replaceAll(' ', '-')}`}>{tech}</a>
-        </li>
-      ))}
-    </ul>
-    <p><strong>Project Background:</strong> {item.data.background}</p>
-  </div>
+  <section class="hero | l-wrapper">
+    <picture class="hero__image | l-frame">
+			<source 
+				srcset={`${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-hero.jpg 1x, ${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-hero@2x.jpg 2x`} 
+				media="(min-width: 55.001rem)" 
+				type="image/jpg"
+			/>
+			<source 
+				srcset={`${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-hero.jpg 1x, ${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-hero@2x.jpg 2x`} 
+				media="(min-width: 40.001rem)" .
+				type="image/jpg"
+			/>
+			<img 
+				src={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-hero.jpg`} 
+				srcset={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-hero.jpg 1x, ${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-hero@2x.jpg 2x`} 
+				alt={`Image of a screen displaying the Manage project`} 
+				width="311"
+				height="140"
+				loading="eager"
+			/>
+		</picture>
+  </section>
+
+  <section class="project | l-wrapper l-region l-sidebar">
+    <div class="project__meta | l-switcher | u-border--block">
+      <div class="l-flow">
+        <h2>{item.data.title}</h2>
+        <p>{item.data.description}</p>
+        <ul role="list" class="project__meta--categories | l-cluster">
+          {item.data.categories.map(cat => (
+            <li>{cat}</li>
+          ))}
+        </ul>
+        <ul role="list" class="project__meta--technologies | l-cluster">
+          {item.data.technologies.map(tech => (
+            <li>{tech}</li>
+          ))}
+        </ul>
+        <CompButton
+          text="View Website"
+          ariaLabel= {`view ${item.data.title} website`}/>
+      </div>
+      <p inert>{item.data.description}</p>
+    </div>
+
+    <div class="project__preview | l-flow">
+      <h3>Project Background</h3>
+      <p>{item.data.background}</p>
+      <h3>Static Previews</h3>
+      <picture class="project__preview--image | l-frame">
+        <source 
+          srcset={`${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-preview-1.jpg 1x, ${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-preview-1@2x.jpg 2x`} 
+          media="(min-width: 55.001rem)" 
+          type="image/jpg"
+        />
+        <source 
+          srcset={`${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-preview-1.jpg 1x, ${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-preview-1@2x.jpg 2x`} 
+          media="(min-width: 40.001rem)" .
+          type="image/jpg"
+        />
+        <img 
+          src={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-1.jpg`} 
+          srcset={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-1.jpg 1x, ${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-1@2x.jpg 2x`} 
+          alt={`Image of a screen displaying the Manage project`} 
+          width="311"
+          height="196"
+          loading="eager"
+        />
+      </picture>
+      <picture class="project__preview--image | l-frame">
+        <source 
+          srcset={`${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-preview-2.jpg 1x, ${CONFIG_BASE}/images/pages/detail/desktop/image-${item.slug}-preview-2@2x.jpg 2x`} 
+          media="(min-width: 55.001rem)" 
+          type="image/jpg"
+        />
+        <source 
+          srcset={`${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-preview-2.jpg 1x, ${CONFIG_BASE}/images/pages/detail/tablet/image-${item.slug}-preview-2@2x.jpg 2x`} 
+          media="(min-width: 40.001rem)" .
+          type="image/jpg"
+        />
+        <img 
+          src={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-2.jpg`} 
+          srcset={`${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-2.jpg 1x, ${CONFIG_BASE}/images/pages/detail/mobile/image-${item.slug}-preview-2@2x.jpg 2x`} 
+          alt={`Image of a screen displaying the Manage project`} 
+          width="311"
+          height="196"
+          loading="eager"
+        />
+      </picture>
+    </div>
+  </section>
+
+  <CompPagination />
+
+  <SectInterest />
+
 </LayoutDefault>
+
+<style lang="scss">
+	@use "../../styles/20-mixins/media-query" as *;
+  @use "../../styles/10-functions/theme-accessor" as *;
+	
+	.hero {
+		&__image {
+			--frame-width: 311;
+			--frame-height: 140;
+		}
+  }
+
+  .project {
+    --space-region: var(--space-gutter) var(--space-2xl);
+    --sidebar-target-width: 24rem;
+    --sidebar-content-min-width: 99%;
+    --sidebar-vertical-alignment: start;
+    --space-flow: 1.5em;
+    --space-sidebar: var(--space-l-xl);
+    font-size: get(font-size, -1);
+    
+    &__meta {
+      --space-cluster: 1ch;
+      display: block;
+      padding-block: var(--space-m);
+
+      ul {
+        color: get(color, slightly-desaturated-cyan);
+      }
+
+      li:not(:first-child)::before {
+        content: "/";
+        padding-right: 1ch;
+      }
+
+      &--technologies {
+        --space-flow: .5em;
+      }
+
+      :global(.button) {
+        --space-flow: 3em;
+      }
+      
+      & > p {
+        display: none;
+      }
+    }
+
+    &__preview {
+      --frame-width: 311;
+      --frame-height: 196;
+
+      h3 ~ h3 {
+        --space-flow: 1.5em;
+      }
+
+      &--image {
+        --space-flow: var(--space-gutter);
+      }
+    }
+  }
+
+  @include media-query(from, tablet) {
+		.hero {
+      &__image {
+        --frame-width: 689;
+				--frame-height: 310;
+			}
+		}
+
+    .project {
+      --space-flow: 2em;
+
+      &__meta {
+        display: flex;
+
+        div:first-of-type p {
+          inline-size: 1px;
+          block-size: 1px;
+          overflow: hidden;
+          clip: rect(0 0 0 0); // for IE only
+          clip-path: inset(50%);
+          position: absolute;
+          white-space: nowrap;
+        }
+
+        & > p {
+          display: block;
+        }
+      }
+
+      &__preview {
+        --frame-width: 689;
+        --frame-height: 434;
+      }
+    }
+  }
+  
+  @include media-query(from, desktop) {
+    .hero {
+			&__image {
+				--frame-width: 1110;
+				--frame-height: 500;
+			}
+    }
+
+    .project {
+      --space-region: var(--space-2xl);
+      --sidebar-target-width: 22rem;
+      --sidebar-content-min-width: 1%;
+      --space-sidebar: var(--space-2xs-3xl);
+      
+      &__meta {
+        display: block;
+
+        div:first-of-type p {
+          inline-size: auto;
+          block-size: auto;
+          overflow: visible;
+          clip: auto;
+          clip-path: none;
+          position: static;
+          white-space: normal;
+        }
+
+        & > p {
+          display: none;
+        }
+
+        p {
+          max-inline-size: 38.5ch;
+        }
+      }
+      
+      &__preview {
+        --frame-width: 635;
+        --frame-height: 400;
+      }
+    }
+  }
+
+</style>

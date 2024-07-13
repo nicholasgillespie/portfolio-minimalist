@@ -1,0 +1,67 @@
+---
+// Imports
+import CompSvgSheet from "./CompSvgSheet.astro";
+---
+
+<section class="pagination | l-wrapper l-switcher">
+  <div class="l-sidebar | u-border--block">
+    <div>
+      <div>x</div>
+      <!-- <a href={item.url}>
+        <svg class="icon" fill="currentColor" viewBox={iconViewboxMap[item.label]}>
+          <use xlink:href={`#${item.label.toLowerCase()}`}></use>
+        </svg>
+        <span class="u-vh">{item.label}</span>
+      </a> -->
+    </div>
+    <div class="l-flow">
+      <h3>left</h3>
+      <p>Previous Project</p>
+    </div>
+  </div>
+  <div class="l-sidebar | u-border--block">
+    <div>x</div>
+    <div class="l-flow">
+      <h3>right</h3>
+      <p>Next Project</p>
+    </div>
+  </div>
+</section>
+<CompSvgSheet />
+
+<style lang="scss">
+  @use "../styles/20-mixins/media-query" as *;
+
+  .pagination {
+    --sidebar-target-width: 1ch;
+    --sidebar-vertical-alignment: center;
+    --space-sidebar: var(--space-gutter);
+    --space-switcher: 0;
+    flex-wrap: nowrap;
+    
+    & > div {
+      --space-flow: .35em;
+      padding-block: var(--space-s-xl);
+      color: var(--color-new-grey);
+    }
+
+    & > div:first-child {
+      border-inline-end: var(--border);
+      padding-inline-end: var(--space-gutter);
+    }
+    
+    & > div:last-child {
+      flex-direction: row-reverse;
+      text-align: end;
+      padding-inline-start: var(--space-gutter);
+    }
+  }
+
+  @include media-query(up-to, tablet) {
+    .pagination {
+      & > .l-sidebar {
+        --sidebar-target-width: 999rem;
+      }
+    }
+  }
+</style>

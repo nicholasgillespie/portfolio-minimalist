@@ -1,7 +1,9 @@
 ---
 title: "Insure"
 description: "This was a small project which mostly consisted of HTML and CSS. I built a fully-responsive landing page. The only JavaScript this project required was to enable the toggling of the mobile navigation."
-category: "Interaction Design / Front End Development"
+categories:
+  - Interaction Design
+  - Front End Development
 technologies:
   - HTML
   - CSS
