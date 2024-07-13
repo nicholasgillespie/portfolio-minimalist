@@ -222,11 +222,11 @@ import CompPagination from '../../components/CompPagination.astro';
 			}
     }
 
-    :is(.project, #specBoost) {
+    .project {
       --space-region: var(--space-2xl);
       --space-sidebar: var(--space-2xs-3xl);
       
-      &__meta {
+      :is(.project__meta, #specBoost) {
         --sidebar-target-width: 22rem;
         display: block;
 
