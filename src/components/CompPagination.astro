@@ -66,7 +66,11 @@ import CompSvgSheet from "./CompSvgSheet.astro";
 
   @include media-query(up-to, tablet) {
     .pagination {      
-      & > .l-sidebar {
+      --sidebar-target-width: 999rem;
+      
+      & > :is(.l-sidebar, #specBoost) {
+        flex-wrap: wrap;
+        background-color: red;
         --sidebar-target-width: 999rem;
       }
     }
