@@ -120,7 +120,11 @@ const nextItem = currentIndex < sortedData.length - 1 ? sortedData[currentIndex 
 
     .pagination__inner {
       .l-sidebar {
-        --sidebar-target-width: 1ch;
+        // --sidebar-target-width: 1ch;
+
+        & :first-child {
+          // inline-size: 100%;
+        }
       }
     }
   }
