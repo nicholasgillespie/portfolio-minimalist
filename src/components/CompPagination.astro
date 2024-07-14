@@ -21,10 +21,10 @@ const prevItem = currentIndex > 0 ? sortedData[currentIndex - 1] : null;
 const nextItem = currentIndex < sortedData.length - 1 ? sortedData[currentIndex + 1] : null;
 ---
 
-<section class="pagination | l-wrapper l-region l-switcher">
+<section class="pagination | l-wrapper l-switcher">
   <!-- Previous Link -->
   {prevItem ? (
-    <div class="pagination__inner">
+    <div class="pagination__inner | u-border--block">
       <a href={`${CONFIG_BASE}/portfolio/${prevItem.slug}`}>
         <div class="l-sidebar">
           <div class="pagination__icon">
@@ -41,12 +41,12 @@ const nextItem = currentIndex < sortedData.length - 1 ? sortedData[currentIndex 
       </a>
     </div>
   ) : (
-    <div class="pagination__inner"></div>
+    <div class="pagination__inner | u-border--block"></div>
   )}
 
   <!-- Next Link -->
   {nextItem ? (
-    <div class="pagination__inner">
+    <div class="pagination__inner | u-border--block">
       <a href={`${CONFIG_BASE}/portfolio/${nextItem.slug}`}>
         <div class="l-sidebar">
           <div class="pagination__icon">
@@ -63,7 +63,7 @@ const nextItem = currentIndex < sortedData.length - 1 ? sortedData[currentIndex 
       </a>
     </div>
   ) : (
-    <div class="pagination__inner"></div>
+    <div class="pagination__inner | u-border--block"></div>
   )}
 
 </section>
@@ -80,6 +80,12 @@ const nextItem = currentIndex < sortedData.length - 1 ? sortedData[currentIndex 
   }
 
   .pagination__inner {
+    padding-block: var(--space-2xl) var(--space-2xl-3xl);
+
+    &:first-of-type {
+      border-inline-end: var(--border);
+    }
+
     a {
       text-decoration: none;
     }
