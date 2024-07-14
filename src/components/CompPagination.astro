@@ -1,5 +1,6 @@
 ---
 // Imports
+import { CONFIG_BASE } from "../consts";
 import CompSvgSheet from "./CompSvgSheet.astro";
 
 // Component Props
@@ -24,7 +25,7 @@ const nextItem = currentIndex < sortedData.length - 1 ? sortedData[currentIndex 
   <!-- Previous Link -->
   {prevItem ? (
     <div class="pagination__inner">
-      <a href={`/portfolio/${prevItem.slug}`}>
+      <a href={`${CONFIG_BASE}/portfolio/${prevItem.slug}`}>
         <div class="l-sidebar">
           <div class="pagination__icon">
             <svg class="icon" fill="currentColor" viewBox="0 0 10 16">
@@ -46,7 +47,7 @@ const nextItem = currentIndex < sortedData.length - 1 ? sortedData[currentIndex 
   <!-- Next Link -->
   {nextItem ? (
     <div class="pagination__inner">
-      <a href={`/portfolio/${nextItem.slug}`}>
+      <a href={`${CONFIG_BASE}/portfolio/${nextItem.slug}`}>
         <div class="l-sidebar">
           <div class="pagination__icon">
             <svg class="icon" fill="currentColor" viewBox="0 0 10 16">
