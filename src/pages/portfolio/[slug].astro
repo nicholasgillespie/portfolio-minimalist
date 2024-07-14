@@ -8,16 +8,22 @@ import SectInterest from '../../components/SectInterest.astro';
 import CompPagination from '../../components/CompPagination.astro';
 
 // Dynamic Data & Logic 
-  export async function getStaticPaths() {
-    const items = await getCollection("projects");   
-    return items.map(item => ({
-      params: { slug: item.slug }, 
-      props: { item },
-    }));
-  }
-  
-  // Component Props
-  const { item } = Astro.props;
+export async function getStaticPaths() {
+  const items = await getCollection("projects");
+  const paginationData = items.map((project, index) => ({
+    slug: project.slug,
+    title: project.data.title,
+    order: project.data.order,
+  }));
+      
+  return items.map(item => ({
+    params: { slug: item.slug }, 
+    props: { item, paginationData },
+  }));
+}
+
+// Component Props
+const { item, paginationData } = Astro.props;
 ---
 
 <LayoutDefault metaTitle={item.data.title} metaDescription={item.data.description}>
@@ -113,7 +119,7 @@ import CompPagination from '../../components/CompPagination.astro';
     </div>
   </section>
 
-  <CompPagination />
+  <CompPagination paginationData={ paginationData } item={ item.slug } />
   <SectInterest />
 </LayoutDefault>
 

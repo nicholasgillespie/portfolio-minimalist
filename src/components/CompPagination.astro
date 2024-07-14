@@ -1,33 +1,70 @@
 ---
 // Imports
 import CompSvgSheet from "./CompSvgSheet.astro";
+
+// Component Props
+const { paginationData, item } = Astro.props;
+
+// Sort paginationData by order
+const sortedData = [...paginationData].sort((a, b) => a.order - b.order);
+console.log();
+
+
+// Find current item's order
+const currentItem = sortedData.find(p => p.slug === item);
+const currentOrder = currentItem ? currentItem.order : null;
+
+// Determine previous and next items based on order
+const currentIndex = sortedData.findIndex(p => p.order === currentOrder);
+const prevItem = currentIndex > 0 ? sortedData[currentIndex - 1] : null;
+const nextItem = currentIndex < sortedData.length - 1 ? sortedData[currentIndex + 1] : null;
 ---
 
-<section class="pagination | l-wrapper l-switcher">
-  <div class="previous | l-sidebar | u-border--block">
-    <div>
-      <svg class="icon" fill="currentColor" viewBox="0 0 10 16">
-        <use xlink:href="#arrow-left"></use>
-      </svg>
-      <span class="u-vh">Previous Project</span>  
+<section class="pagination | l-wrapper l-region l-switcher">
+  <!-- Previous Link -->
+  {prevItem ? (
+    <div class="pagination__inner">
+      <a href={`/portfolio/${prevItem.slug}`}>
+        <div class="l-sidebar">
+          <div class="pagination__icon">
+            <svg class="icon" fill="currentColor" viewBox="0 0 10 16">
+              <use xlink:href="#arrow-left"></use>
+            </svg>
+            <span class="u-vh">Previous Project</span>
+          </div>
+          <div class="pagination__content | l-flow">
+            <h3>{prevItem.title}</h3>
+            <p>Previous Project</p>
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="l-flow">
-      <h3>left</h3>
-      <p>Previous Project</p>
-    </div>
-  </div>
+  ) : (
+    <div class="pagination__inner"></div>
+  )}
 
-  <div class="next | l-sidebar | u-border--block">
-    <div>
-      <svg class="icon" fill="currentColor" viewBox="0 0 10 16">
-        <use xlink:href="#arrow-right"></use>
-      </svg>
+  <!-- Next Link -->
+  {nextItem ? (
+    <div class="pagination__inner">
+      <a href={`/portfolio/${nextItem.slug}`}>
+        <div class="l-sidebar">
+          <div class="pagination__icon">
+            <svg class="icon" fill="currentColor" viewBox="0 0 10 16">
+              <use xlink:href="#arrow-right"></use>
+            </svg>
+          </div>
+          <div class="pagination__content | l-flow">
+            <h3>{nextItem.title}</h3>
+            <p>Next Project</p>
+          </div>
+
+        </div>
+      </a>
     </div>
-    <div class="l-flow">
-      <h3>right</h3>
-      <p>Next Project</p>
-    </div>
-  </div>
+  ) : (
+    <div class="pagination__inner"></div>
+  )}
+
 </section>
 <CompSvgSheet />
 
@@ -35,49 +72,99 @@ import CompSvgSheet from "./CompSvgSheet.astro";
   @use "../styles/20-mixins/media-query" as *;
 
   .pagination {
-    --sidebar-target-width: 999rem;
-    --sidebar-vertical-alignment: center;
-    --space-sidebar: var(--space-2xs);
     --space-switcher: 0;
+    --switcher-vertical-alignment: stretch;
     flex-wrap: nowrap;
-    align-items: stretch;
+  }
 
-    .icon {
-      block-size: var(--font-size-base);
-    }
-    
-    & > div {
-      --space-flow: .35em;
-      // --sidebar-target-width: 999rem;
-      padding-block: var(--space-s-xl);
-      color: var(--color-new-grey);
-      flex-wrap: wrap;
-      
-      & div:first-child {
-        inline-size: 100%;
-      }
-    }
+  .pagination__inner {
+    a {}
 
-    & > div:first-child {
-      border-inline-end: var(--border);
+    .l-sidebar {}
+
+    // previous link
+    &:first-of-type {
       padding-inline-end: var(--space-gutter);
     }
     
-    & > div:last-child {
-      flex-direction: row-reverse;
+    // next link
+    &:last-of-type {
       text-align: end;
       padding-inline-start: var(--space-gutter);
-    }
-  }
 
-  @include media-query(from, tablet) {
-    .pagination {
-      --space-sidebar: var(--space-gutter);
-      --sidebar-target-width: 0.001rem;
-
-      & :is(div, #specBoost) {
-        inline-size: unset;
+      & .l-sidebar {
+        flex-direction: row-reverse;
       }
     }
   }
+
+  .pagination__icon {
+    .icon {
+      block-size: var(--font-size-base);
+    }
+  }
+
+  .pagination__content {}
+
+  @include media-query(from, tablet) {
+    .pagination {
+      background-color: yellow;
+    }
+
+    .pagination__inner {
+      .l-sidebar {
+        --sidebar-target-width: 1ch;
+        --space-sidebar: var(--space-gutter);
+      }
+    }
+  }
+
+
+  // .pagination {
+  //   --sidebar-target-width: 999rem;
+  //   --sidebar-vertical-alignment: center;
+  //   --space-sidebar: var(--space-2xs);
+  //   --space-switcher: 0;
+  //   flex-wrap: nowrap;
+  //   align-items: stretch;
+
+  //   .icon {
+  //     block-size: var(--font-size-base);
+  //   }
+    
+  //   & > div {
+  //     --space-flow: .35em;
+  //     // --sidebar-target-width: 999rem;
+  //     padding-block: var(--space-s-xl);
+  //     color: var(--color-new-grey);
+  //     flex-wrap: wrap;
+      
+  //     & div:first-child {
+  //       inline-size: 100%;
+  //     }
+  //   }
+
+  //   & > div:first-child {
+  //     border-inline-end: var(--border);
+  //     padding-inline-end: var(--space-gutter);
+  //   }
+    
+  //   & > div:last-child {
+  //     flex-direction: row-reverse;
+  //     text-align: end;
+  //     padding-inline-start: var(--space-gutter);
+  //   }
+  // }
+
+  // @include media-query(from, tablet) {
+  //   .pagination {
+  //     background-color: yellow;
+  //     --space-sidebar: var(--space-gutter);
+  //     --sidebar-target-width: 0.001rem;
+
+  //     & :is(div, #specBoost) {
+  //       inline-size: unset;
+  //     }
+  //   }
+  // }
 </style>

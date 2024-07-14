@@ -13,7 +13,7 @@ const metaDescription = "xxx";
 // Dynamic Data & Logic
 const items = (await getCollection("projects"))
   .filter(item => item.data.featured === true)
-  .sort((a, b) => a.data.order - b.data.order);
+  .sort((a, b) => a.data.order - b.data.order);		
 ---
 
 <LayoutDefault {metaTitle} {metaDescription}>
