@@ -138,9 +138,15 @@
 
 - Develop the pagination component. Currently, it's structured to display previous and next project links visually. However, it still requires the capability to dynamically receive information about the page coming before (previous) and after (next).
 
+## 2024-07-14 - Morning
+
+### Pagination Component
+
+- Created pagination component.
+
 ### TODO
 
-- Create Project page.
+- Create Contact page.
 - Deal with the different possible button variants.
 
 ---
