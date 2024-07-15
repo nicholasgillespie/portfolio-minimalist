@@ -1,6 +1,7 @@
 ---
 // Imports
 import LayoutDefault from '../layouts/LayoutDefault.astro';
+import CompSocialLinks from '../components/CompSocialLinks.astro';
 
 // Static Data
 const metaTitle = "Contact Me";
@@ -8,7 +9,59 @@ const metaDescription = "XXX";
 ---
 
 <LayoutDefault {metaTitle} {metaDescription}>
-	<section class="l-wrapper">
-		<h1>contact page</h1>
+	<section class="touch | l-wrapper">
+		<div class="touch__inner | l-columns | u-border--bs">
+			<div>
+				<h2>Get in Touch</h2>
+			</div>
+			<div class="l-flow">
+				<p>I’d love to hear about what you’re working on and how I could help. I’m currently looking for a new role and am open to a wide range of opportunities. My preference would be to find a position in a company in London. But I’m also happy to hear about opportunites that don’t fit that description. I’m a hard-working and positive person who will always approach each task with a sense of purpose and attention to detail. Please do feel free to check out my online profiles below and get in touch using the form.</p>
+				<CompSocialLinks />
+			</div>
+		</div>
 	</section>
 </LayoutDefault>
+
+<style lang="scss">
+	@use "../styles/20-mixins/media-query" as *;
+  @use "../styles/10-functions/theme-accessor" as *;
+
+	.touch {
+		--space-columns: 0;
+
+		&__inner {
+			padding-block-start: var(--space-m);
+		}
+
+		p {
+			padding-block-start: 1em;
+		}
+
+		:global(ul) {
+			--space-flow: 1.5em;
+			color: get(color, grayish-dark-blue);
+		}
+	}
+
+  @include media-query(from, desktop) {
+		.touch {
+			
+			&__inner {
+				--space-columns: var(--space-gutter);
+
+				& > :first-child {
+					--columns-item-span: calc((var(--columns) / 5) * 2);
+				}
+
+				& > :last-child {
+					--columns-item-span: calc((var(--columns) / 5) * 3);
+				}
+			}
+
+			p {
+				max-inline-size: 68ch;
+				padding-block-start: 0;
+			}
+		}
+	}
+</style>
