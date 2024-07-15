@@ -144,9 +144,18 @@
 
 - Created pagination component.
 
+## 2024-07-15 - Morning
+
+### Contact Page
+
+- Created Contact page.
+- Require implementation of following directives:
+  - Receive an error message when the contact form is submitted if:
+    - The Name, Email Address, or Message fields are empty should show "This field is required"
+    - The Email Address is not formatted correctly should show "Please use a valid email address"
+
 ### TODO
 
-- Create Contact page.
 - Deal with the different possible button variants.
 
 ---

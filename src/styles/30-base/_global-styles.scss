@@ -117,26 +117,29 @@ b {
 //   accent-color: var(--color-accent);
 // }
 
-// :is(
-//     input:not([type="checkbox"], [type="radio"], [type="color"]),
-//     select,
-//     textarea
-//   ) {
-//   padding: 0.5em 0.8em;
-//   border-radius: var(--radius-s);
-//   border: var(--stroke-solid);
-//   background: var(--color-dark-glare);
-//   color: var(--color-light);
-//   inline-size: 100%;
+input:not([type="checkbox"], [type="radio"], [type="color"]),
+select,
+textarea {
+  padding: 1em;
+  // border-radius: var(--radius-s);
+  border: none;
+  background: #e6e6e7;
+  color: get(color, grayish-dark-blue);
+  inline-size: 100%;
 
-//   &::placeholder {
-//     color: rgb(255 255 255 / 70%);
-//   }
-// }
+  &::placeholder {
+    color: #9e9ea3;
+  }
+}
 
 input,
 label {
   line-height: get(line-height, flat);
+}
+
+label {
+  font-weight: get(font-weight, bold);
+  font-size: get(font-size, -2);
 }
 
 // label::after {

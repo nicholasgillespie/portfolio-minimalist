@@ -2,6 +2,7 @@
 // Imports
 import LayoutDefault from '../layouts/LayoutDefault.astro';
 import CompSocialLinks from '../components/CompSocialLinks.astro';
+import CompButton from '../components/CompButton.astro';
 
 // Static Data
 const metaTitle = "Contact Me";
@@ -20,17 +21,41 @@ const metaDescription = "XXX";
 			</div>
 		</div>
 	</section>
+	<section class="contact | l-wrapper">
+		<div class="contact__inner | l-columns | u-border--bs">
+			<div>
+				<h2>Contact Me</h2>
+			</div>
+			<div class="contact__form | l-stack">
+				<div class="l-stack">
+					<label for="name">Name</label>
+					<input type="text" id="name" name="name" required placeholder="Jane Appleseed"/>
+				</div>
+				<div class="l-stack">
+					<label for="email">Email Address</label>
+					<input type="email" id="email" name="email" required placeholder="email@example.com"/>
+				</div>
+				<div class="l-stack">
+					<label for="message">Message</label>
+					<textarea id="message" name="message" required placeholder="How can I help?"></textarea>
+				</div>
+				<CompButton text="Submit" />
+			</div>
+		</div>
+	</section>
 </LayoutDefault>
 
 <style lang="scss">
 	@use "../styles/20-mixins/media-query" as *;
   @use "../styles/10-functions/theme-accessor" as *;
 
-	.touch {
+	.touch, 
+	.contact {
 		--space-columns: 0;
+		--space-region: 0 var(--space-2xl-3xl);
 
 		&__inner {
-			padding-block-start: var(--space-m);
+			padding-block: var(--space-m);
 		}
 
 		p {
@@ -43,8 +68,30 @@ const metaDescription = "XXX";
 		}
 	}
 
+	.contact {
+		--space-columns: var(--space-m);
+		padding-block-end: var(--space-2xl-3xl);
+
+		&__inner {
+			padding-block-end: 0;
+		}
+	}
+
+	.contact__form {
+		--space-stack: var(--space-m);
+
+		& > .l-stack {
+			inline-size: 100%;
+		}
+
+		.l-stack > * {
+			--space-stack: var(--space-xs);
+		}
+	}
+
   @include media-query(from, desktop) {
-		.touch {
+		.touch,
+		.contact {
 			
 			&__inner {
 				--space-columns: var(--space-gutter);

@@ -63,6 +63,7 @@ select {
 // Make sure textareas without a rows attribute are not tiny
 textarea:not([rows]) {
   min-block-size: 10em;
+  resize: none;
 }
 
 // A elements that don't have a class get default styles
