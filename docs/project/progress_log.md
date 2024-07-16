@@ -2,7 +2,7 @@
 
 ## Project Duration
 
-<!-- The Portfolio Design project was actively developed over a period of 4 days, starting on June 24, 2024, and concluding on July 3, 2024. -->
+The Portfolio Design project was actively developed over a period of 7.5 full days, starting on July 03, 2024, and concluding on July 16, 2024.
 
 ## 2024-07-03 - Afternoon
 
@@ -101,7 +101,7 @@
 
 ### TODO
 
-- Develop pages in alignment with design specifications. Lets go!
+- ~~Develop pages in alignment with design specifications. Lets go!~~
 
 ## 2024-07-11 - Full day
 
@@ -156,7 +156,7 @@
 
 ### TODO
 
-- Deal with the different possible button variants.
+- ~~Deal with the different possible button variants.~~
 
 ## 2024-07-16 - Morning
 
@@ -168,18 +168,16 @@
 
 - Enhanced SEO by crafting concise, relevant meta descriptions for all site pages, aimed at improving discoverability and relevance in search results.
 
-### TODO
+### Contact Form Validation
 
-- Require implementation of following directives:
-  - Receive an error message when the contact form is submitted if:
-    - The Name, Email Address, or Message fields are empty should show "This field is required"
-    - The Email Address is not formatted correctly should show "Please use a valid email address"
-- Deal with the different possible button variants.
+- Implemented validation for the contact form ensuring:
+  - Display of "This field is required" error message for empty Name, Email Address, or Message fields.
+  - Display of "Please use a valid email address" for incorrectly formatted email addresses.
 
----
+### Button Variants
 
-## [Date] - [Session]
+- Integrated button variant with arrows.
 
-### [Task Category]
+### Project Completion and Deployment
 
-- [Your tasks here]
+- The project has been successfully completed and pushed to GitHub Pages. The live site is now accessible to the public at [https://nicholasgillespie.github.io/portfolio-minimalist/](https://nicholasgillespie.github.io/portfolio-minimalist/).
