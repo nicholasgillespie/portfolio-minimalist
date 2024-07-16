@@ -158,6 +158,24 @@
 
 - Deal with the different possible button variants.
 
+## 2024-07-16 - Morning
+
+### Site Footer Layout
+
+- Adjusted site footer for improved responsiveness and user experience across all devices and screen sizes.
+
+### SEO Improvements
+
+- Enhanced SEO by crafting concise, relevant meta descriptions for all site pages, aimed at improving discoverability and relevance in search results.
+
+### TODO
+
+- Require implementation of following directives:
+  - Receive an error message when the contact form is submitted if:
+    - The Name, Email Address, or Message fields are empty should show "This field is required"
+    - The Email Address is not formatted correctly should show "Please use a valid email address"
+- Deal with the different possible button variants.
+
 ---
 
 ## [Date] - [Session]
