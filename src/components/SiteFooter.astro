@@ -11,7 +11,7 @@ import CompSocialLinks from "./CompSocialLinks.astro";
       <div class="l-cluster">
         <CompLogoLink variant="secondary" />
         <!-- Omit label if navigation links are identical. -->
-        <CompNavigation label="Footer Navigation"/>
+        <CompNavigation/>
       </div>
       <CompSocialLinks />
     </div>
@@ -24,11 +24,20 @@ import CompSocialLinks from "./CompSocialLinks.astro";
 
   footer {
     --space-region: #{get(space, l)};
+    --repel-direction: column;
+    --cluster-direction: column;
+
     background-color: get(background-color, grayish-dark-blue);
     color: #FFFFFF;
 
+    :global(.social-links) {
+      --cluster-direction: row;
+    }
+
     @include media-query(from, tablet) {
       --space-region: #{get(space, m)};
+      --repel-direction: row;
+      --cluster-direction: row;
     }
   }
 </style>

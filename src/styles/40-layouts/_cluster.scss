@@ -12,6 +12,7 @@
 
 .l-cluster {
   display: flex;
+  flex-direction: var(--cluster-direction, row);
   flex-wrap: var(--cluster-flex-wrap, wrap);
   justify-content: var(--cluster-horizontal-alignment, flex-start);
   align-items: var(--cluster-vertical-alignment, center);
