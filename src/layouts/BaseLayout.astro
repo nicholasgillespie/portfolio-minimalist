@@ -9,6 +9,9 @@ const { metaTitle, metaDescription } = Astro.props;
 <html lang="en">
 	<BaseHead {metaTitle} {metaDescription} />
 	<body>
+		<!-- Slot for main content -->
     <slot />
+		<!-- Slot for scripts -->
+		<slot name="scripts"></slot>
 	</body>
 </html>

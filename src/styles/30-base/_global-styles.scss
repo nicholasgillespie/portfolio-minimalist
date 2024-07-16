@@ -108,6 +108,24 @@ b {
 // LIST ELEMENTS
 
 // FORM ELEMENTS
+form {
+  .error {
+    position: absolute;
+    color: get(color, bright-red);
+    inset-block-end: -1.2lh;
+    font-size: get(font-size, -2);
+    font-weight: get(font-weight, bold);
+    font-style: italic;
+  }
+
+  :is(.input-valid, #specBoost) {
+    border: solid var(--border-width) get(color, slightly-desaturated-cyan);
+  }
+
+  :is(.input-error, #specBoost) {
+    border: solid var(--border-width) get(color, bright-red);
+  }
+}
 
 // form > * + * {
 //   margin-block-start: var(--flow-space, 1em);
@@ -121,8 +139,8 @@ input:not([type="checkbox"], [type="radio"], [type="color"]),
 select,
 textarea {
   padding: 1em;
-  // border-radius: var(--radius-s);
-  border: none;
+  border: var(--input-border, solid transparent var(--border-width));
+  border-radius: var(--input-radius, var(--radius));
   background: #e6e6e7;
   color: get(color, grayish-dark-blue);
   inline-size: 100%;
@@ -139,7 +157,7 @@ label {
 
 label {
   font-weight: get(font-weight, bold);
-  font-size: get(font-size, -2);
+  font-size: get(font-size, -1);
 }
 
 // label::after {

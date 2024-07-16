@@ -11,9 +11,12 @@ const { metaTitle, metaDescription } = Astro.props;
 <BaseLayout {metaTitle} {metaDescription}>
   <SiteHeader />
   <main id="main">
+    <!-- Slot for main content -->
     <slot />
   </main>
   <SiteFooter/>
+  <!-- Slot for scripts -->
+  <slot name="scripts"></slot>
 </BaseLayout>
 
 <style lang="scss">

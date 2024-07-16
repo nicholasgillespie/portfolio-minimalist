@@ -7,6 +7,8 @@ import CompButton from '../components/CompButton.astro';
 // Static Data
 const metaTitle = "Contact Me";
 const metaDescription = "Get in touch with Alex Spencer for web development projects or collaborations. Reach out today to discuss how we can work together to create something amazing.";
+
+// Dynamic Data & Logic
 ---
 
 <LayoutDefault {metaTitle} {metaDescription}>
@@ -26,23 +28,26 @@ const metaDescription = "Get in touch with Alex Spencer for web development proj
 			<div>
 				<h2>Contact Me</h2>
 			</div>
-			<div class="contact__form | l-stack">
+			<form class="contact__form | l-stack">
 				<div class="l-stack">
 					<label for="name">Name</label>
-					<input type="text" id="name" name="name" required placeholder="Jane Appleseed"/>
+					<input type="text" id="name" name="name" placeholder="Jane Appleseed"/>
 				</div>
 				<div class="l-stack">
 					<label for="email">Email Address</label>
-					<input type="email" id="email" name="email" required placeholder="email@example.com"/>
+					<input type="email" id="email" name="email" placeholder="email@example.com"/>
 				</div>
 				<div class="l-stack">
 					<label for="message">Message</label>
-					<textarea id="message" name="message" required placeholder="How can I help?"></textarea>
+					<textarea id="message" name="message" placeholder="How can I help?"></textarea>
 				</div>
 				<CompButton text="Submit" />
-			</div>
+			</form>
 		</div>
 	</section>
+	<slot slot="scripts">
+    <script src="../scripts/form-validation.js"></script>
+  </slot>
 </LayoutDefault>
 
 <style lang="scss">
@@ -65,6 +70,10 @@ const metaDescription = "Get in touch with Alex Spencer for web development proj
 		:global(ul) {
 			--space-flow: 1.5em;
 			color: get(color, grayish-dark-blue);
+
+			& > :global(li):where(:hover, :focus-visible) {
+				color: get(color, slightly-desaturated-cyan);
+			}
 		}
 	}
 
@@ -78,10 +87,15 @@ const metaDescription = "Get in touch with Alex Spencer for web development proj
 	}
 
 	.contact__form {
-		--space-stack: var(--space-m);
+		--space-stack: var(--space-l);
 
+		input, textarea {
+			position: relative;
+		}
+		
 		& > .l-stack {
 			inline-size: 100%;
+			position: relative;
 		}
 
 		.l-stack > * {
