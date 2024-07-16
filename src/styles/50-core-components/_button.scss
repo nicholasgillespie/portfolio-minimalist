@@ -30,20 +30,14 @@
 
   & span {
     padding: var(--button-y-padding) var(--button-x-padding);
-  }
-
-  & svg {
-    position: absolute;
-    // background-color: get(background-color, gold);
-    inset-inline-end: 0;
-    block-size: 100%;
-    padding: var(--button-y-padding) var(--button-x-padding);
+    display: flex;
   }
 
   &:hover,
   &:focus-visible {
     & span {
       background-color: get(color, grayish-dark-blue);
+      background-color: var(--button-bg, #{get(color, grayish-dark-blue)});
       color: get(color, very-light-grey);
     }
 
@@ -63,6 +57,34 @@
     & svg {
       position: absolute;
       inset-inline-start: 0;
+    }
+  }
+
+  &[data-button-variant="special"] {
+    background-color: get(color, dark-blue);
+    color: get(color, very-light-grey);
+
+    & span:has(svg) {
+      color: #5fb4a2;
+      background-color: #1d3444;
+      padding: var(--button-y-padding) calc(var(--button-x-padding) / 1.75);
+    }
+
+    & svg {
+      block-size: 1em;
+      inline-size: 2ch;
+    }
+
+    // Hover styles
+    &:hover,
+    &:focus-visible {
+      --button-bg: #5fb4a2;
+      --button-border-color: #55a292;
+
+      & span:has(svg) {
+        color: get(color, very-light-grey);
+        background-color: #55a292;
+      }
     }
   }
 }

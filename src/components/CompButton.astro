@@ -1,14 +1,54 @@
 ---
-// Component Props
+// Imports remain unchanged
+import CompSvgSheet from "./CompSvgSheet.astro";
+
+// Component Props remain unchanged
 const { href, text, variant = "primary", ariaLabel } = Astro.props;
 ---
 
 {href ? (
   <a class="button" href={href} data-button-variant={variant} aria-label={ariaLabel || text}>
+    {variant === 'special' && (
+      <>
+        <CompSvgSheet />
+        <span>
+          <svg class="icon" fill="currentColor" viewBox="0 0 16 14">
+            <use xlink:href="#down-arrows"></use>
+          </svg>
+        </span>
+      </>
+    )}
     <span inert>{text}</span>   
   </a>
 ) : (
   <button class="button" data-button-variant={variant} aria-label={ariaLabel || text}>
+    {variant === 'special' && (
+      <>
+        <CompSvgSheet />
+        <svg class="icon">
+          <use xlink:href="#down-arrows"></use>
+        </svg>
+      </>
+    )}
     <span inert>{text}</span>
   </button>
 )}
+
+<style lang="scss">
+  @use "../styles/20-mixins/media-query" as *;
+  @use "../styles/10-functions/theme-accessor" as *;
+  
+  [data-button-variant="special"] {
+    // background-color: red;
+    /* Style for positioning the SVG icon */
+    .icon {
+      /* Example positioning styles */
+      // position: absolute;
+      // right: 10px; /* Adjust based on your design */
+      // top: 50%;
+      // transform: translateY(-50%);
+      // display: block;
+      // max-inline-size: 1.5rem;
+    }
+  }
+</style>

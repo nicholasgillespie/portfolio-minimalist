@@ -41,7 +41,7 @@ const metaDescription = "Get in touch with Alex Spencer for web development proj
 					<label for="message">Message</label>
 					<textarea id="message" name="message" placeholder="How can I help?"></textarea>
 				</div>
-				<CompButton text="Submit" />
+				<CompButton text="Send message" />
 			</form>
 		</div>
 	</section>
@@ -100,6 +100,11 @@ const metaDescription = "Get in touch with Alex Spencer for web development proj
 
 		.l-stack > * {
 			--space-stack: var(--space-xs);
+		}
+
+		:global(.button) {
+			background-color: get(color, dark-blue);
+			color: get(color, light-grey);
 		}
 	}
 
